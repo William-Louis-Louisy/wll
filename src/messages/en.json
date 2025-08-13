@@ -1,0 +1,38 @@
+{
+  "BusinessCard": {
+    "name": "William Louis-Louisy",
+    "title": "Fullstack Developer",
+    "flip": "Flip card"
+  },
+  "HomePage": {
+    "title": "Fullstack Developer",
+    "description": "Hello, I am <name>William Louis-Louisy</name>. I specialize in crafting high-performance, intuitive applications and transform your ideas into robust and scalable digital solutions.",
+    "button": "Discover my projects"
+  },
+  "LocaleSwitch": {
+    "label": "Change language",
+    "locale": "{locale, select, fr {🇫🇷} en {🇺🇸} other {Unknown}}"
+  },
+  "Navigation": {
+    "projects": "Projects",
+    "lab": "Lab",
+    "contact": "Contact",
+    "about": "About",
+    "openMainMenu": "Open main menu"
+  },
+  "Projects": {
+    "title": "Projects",
+    "description": "Here is a list of projects I've worked on.",
+    "visit": "Visit"
+  },
+  "ThemeToggle": {
+    "label": "Toggle theme",
+    "light": "Light",
+    "dark": "Dark"
+  },
+  "TimeLine": {
+    "today": "Today",
+    "fullstack": "Fullstack Developer",
+    "freelancer": "I support my clients from the initial idea to the production launch of their applications."
+  }
+}

@@ -1,0 +1,91 @@
+import {
+  Disclosure,
+  DisclosurePanel,
+  DisclosureButton,
+} from "@headlessui/react";
+import Link from "next/link";
+import Logo from "../common/Logo";
+import { cn } from "@/utils/classnames";
+import { useTranslations } from "next-intl";
+import ThemeToggle from "../common/ThemeToggle";
+import { usePathname } from "@/i18n/navigation";
+import { List, X } from "@phosphor-icons/react";
+import { navlinks } from "@/lib/navigationLinks";
+import LocaleSwitch from "../common/LocaleSwitch";
+import MaxWidthWrapper from "../common/MaxWidthWrapper";
+
+export default function Header() {
+  const pathname = usePathname();
+  const t = useTranslations("Navigation");
+  return (
+    <Disclosure as="nav" className="fixed inset-x-0 top-0 z-50 bg-background">
+      <MaxWidthWrapper className="px-4">
+        <header className="h-header w-full flex items-center justify-between">
+          <Logo />
+
+          <div className="hidden sm:inline-flex items-center h-full">
+            {/* Navigation links */}
+            <div className="grid grid-cols-4 h-full">
+              {navlinks.map((link) => (
+                <Link
+                  key={link.id}
+                  href={link.url}
+                  className={cn(
+                    "flex flex-row justify-center items-center text-sm font-orbitron px-6 min-w-16 h-full border-b-4 hover:border-secondary hover:text-secondary duration-150",
+                    pathname === link.url
+                      ? "border-primary text-primary font-bold"
+                      : "border-transparent"
+                  )}
+                >
+                  {t(link.id)}
+                </Link>
+              ))}
+            </div>
+            {/* Lang & Theme */}
+            <div className="hidden sm:ml-6 sm:flex sm:items-center sm:gap-4">
+              <ThemeToggle />
+              <LocaleSwitch />
+            </div>
+          </div>
+
+          {/* Mobile Menu Button */}
+          <div className="-mr-2 flex items-center sm:hidden">
+            <DisclosureButton className="group relative inline-flex items-center justify-center rounded-md p-2 focus:outline-none">
+              <span className="absolute -inset-0.5" />
+              <span className="sr-only">{t("openMainMenu")}</span>
+              <List
+                aria-hidden="true"
+                className="block h-6 w-6 group-data-[open]:hidden"
+              />
+              <X
+                aria-hidden="true"
+                className="hidden h-6 w-6 group-data-[open]:block"
+              />
+            </DisclosureButton>
+          </div>
+        </header>
+      </MaxWidthWrapper>
+
+      {/* Mobile Menu */}
+      <DisclosurePanel className="sm:hidden h-page">
+        <div className="space-y-1 pb-3 pt-2">
+          {navlinks.map((link) => (
+            <DisclosureButton
+              key={link.id}
+              as={Link}
+              href={link.url}
+              className={cn(
+                "block w-full border-l-4 py-2 pl-3 pr-4 text-base font-medium",
+                pathname === link.url
+                  ? "border-foreground"
+                  : "border-transparent"
+              )}
+            >
+              {t(link.id)}
+            </DisclosureButton>
+          ))}
+        </div>
+      </DisclosurePanel>
+    </Disclosure>
+  );
+}

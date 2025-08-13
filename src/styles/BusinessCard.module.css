@@ -1,0 +1,107 @@
+/* === COMPOSANT PRINCIPAL === */
+.card {
+  position: relative;
+  width: 25rem;
+  height: 16rem;
+  border: none;
+  background: transparent;
+  padding: 0;
+  transform-style: preserve-3d;
+  backface-visibility: visible;
+  transition: transform 0.2s ease-out;
+}
+
+/* === ÉTATS DE LA CARTE === */
+.flipped {
+  transform: rotateY(180deg);
+}
+
+.animated .innerCard,
+.animated .innerCardBackface {
+  transition: none;
+}
+
+.card:not(.animated) .innerCard {
+  filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.3));
+}
+
+/* === EFFET GLARE === */
+.glare {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  background: radial-gradient(circle at 50% 50%, rgb(133 148 158), transparent);
+  opacity: 0.4;
+  pointer-events: none;
+  mix-blend-mode: hard-light;
+  transition: all 0.1s ease-out;
+  z-index: 9999;
+}
+
+/* === FACES DE LA CARTE === */
+.innerCard,
+.innerCardBackface {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  box-sizing: border-box;
+  transform-style: preserve-3d;
+  pointer-events: auto;
+  background-color: #0074c7;
+  background-image: repeating-radial-gradient(
+      circle at 0 0,
+      transparent 0,
+      #4c86b0 7px
+    ),
+    repeating-linear-gradient(#0074c755, #0074c7);
+}
+
+.innerCard {
+  padding: 2rem;
+  transform: rotateY(0deg) rotateX(0deg) scale(1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.innerCardBackface {
+  padding: 2rem 1.5rem;
+  color: #fff;
+  transform: rotateX(0deg) rotateY(0deg) scale(1) translateZ(-4px);
+}
+
+/* === CONTENU ARRIÈRE === */
+.backContent {
+  position: absolute;
+  inset: 0;
+  padding: 2rem 1.5rem;
+  box-sizing: border-box;
+  transform: rotateY(180deg);
+}
+
+/* === BOUTONS DE RETOURNEMENT === */
+.flip,
+.unflip {
+  position: absolute;
+  bottom: 0.75rem;
+  right: 0.75rem;
+  padding: 0.5rem 0.75rem;
+  background: rgba(0, 0, 0, 0.1);
+  font-size: 0.75rem;
+  border-radius: 100px;
+  cursor: pointer;
+  transition: all 0.1s ease-out;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.flip:hover,
+.unflip:hover {
+  background: rgba(0, 0, 0, 0.3);
+}
