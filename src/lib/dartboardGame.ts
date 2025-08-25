@@ -63,11 +63,11 @@ export const BULL_RADII = {
 
 export const feedbackContent = {
   success: {
-    title: "Séquence réussie !",
-    message: "La prochaine séquence va commencer dans",
+    title: "successTitle",
+    message: "successMessage",
   },
   fail: {
-    title: "Mauvaise réponse, recommence !",
-    message: "La prochaine séquence va commencer dans",
+    title: "failTitle",
+    message: "failMessage",
   },
 };

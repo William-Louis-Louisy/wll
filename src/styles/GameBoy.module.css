@@ -1,0 +1,948 @@
+.gameboy {
+  position: relative;
+  height: 364px;
+  width: 222px;
+}
+
+/* État local (remplace .power-on global) */
+.powerOn {
+}
+
+/* --- Front plate --- */
+.frontPlate {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  border-bottom-right-radius: 40px;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  border-bottom-left-radius: 8px;
+  background-color: var(--gameboy-color);
+  background: linear-gradient(
+    to left,
+    #b2afb0 0%,
+    #eae8e4 2%,
+    #eae8e4 98%,
+    #c0bcb4 100%
+  );
+  box-shadow: inset 0 10px 6px -2px rgba(255, 255, 255, 0.95),
+    inset 0 -4px 16px 0 rgba(0, 0, 0, 0.5), 0 40px 60px 0 rgba(0, 0, 0, 0.6);
+}
+.frontPlate::before {
+  position: absolute;
+  display: block;
+  content: "";
+  width: 100%;
+  height: 100%;
+  border-bottom-right-radius: 40px;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  border-bottom-left-radius: 8px;
+  pointer-events: none;
+  opacity: 0.09;
+  background-image: var(--gb-noise-texture);
+}
+
+.frontPlateHead {
+  position: absolute;
+  height: 6px;
+  top: 14px;
+  left: 0;
+  right: 0;
+  box-sizing: border-box;
+  background-color: var(--gameboy-color);
+  border-top: 1px solid #9d9b96;
+  border-bottom: 1px solid #fff;
+  border-left: 4px solid rgba(157, 155, 150, 0.3);
+  border-right: 4px solid rgba(157, 155, 150, 0.3);
+}
+.frontPlateHead::before {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0.09;
+  background-image: var(--gb-noise-texture);
+}
+
+.verticalGouge {
+  position: absolute;
+  display: block;
+  width: 3px;
+  height: 14px;
+  top: -15px;
+  background-color: var(--gameboy-color);
+  border-top: 2px solid #fff;
+  border-left: 1px solid #9d9b96;
+  border-right: 1px solid #9d9b96;
+}
+.verticalGouge::before {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0.09;
+  background-image: var(--gb-noise-texture);
+}
+.verticalGouge1 {
+  left: 11px;
+}
+.verticalGouge2 {
+  right: 11px;
+}
+
+.verticalStripe {
+  position: absolute;
+  pointer-events: none;
+  width: 3px;
+  height: 12px;
+  background-color: var(--gameboy-color);
+  bottom: 11px;
+  box-shadow: inset 0 -2px 3px 0 rgba(0, 0, 0, 0.3);
+}
+
+.onOff {
+  position: absolute;
+  width: 40px;
+  height: 9px;
+  border-radius: 5px;
+  left: 19px;
+  top: -13px;
+  background-color: var(--gameboy-color);
+  color: #f7f5f1;
+  font-family: arial, sans-serif;
+  font-weight: normal;
+  font-size: 6px;
+  line-height: 8px;
+  box-shadow: inset 0 1px 3px -1px rgba(0, 0, 0, 0.5), 0 1px 2px 0 #fff;
+}
+.onOff::before {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 100%;
+  border-radius: 24px;
+  opacity: 0.09;
+  background-image: var(--gb-noise-texture);
+}
+.onOffLabel {
+  position: absolute;
+  top: 1px;
+  left: 7px;
+  pointer-events: none;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.25);
+}
+.onOffDot {
+  position: relative;
+  display: inline-block;
+  width: 2px;
+  height: 2px;
+  top: -1px;
+  font-size: 0;
+  margin: -10px -1px 0;
+  background-color: #f7f5f1;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.25);
+  border-radius: 50%;
+}
+
+/* pointes ON/OFF */
+.onOffSpike {
+  position: absolute;
+  display: inline-block;
+  width: 4px;
+  height: 4px;
+  top: 4px;
+}
+.onOffSpike::after,
+.onOffSpike::before,
+.onOffSpike > div {
+  position: absolute;
+  content: "";
+  width: 0;
+  height: 0;
+  border-style: solid;
+}
+.onOffSpikeLeft {
+  left: 3px;
+}
+.onOffSpikeLeft > div {
+  z-index: 1;
+  top: -1px;
+  border-width: 2px 4px 2px 0;
+  border-color: transparent #fffdf8 transparent transparent;
+}
+.onOffSpikeLeft::after {
+  z-index: 3;
+  top: 0;
+  border-width: 2px 4px 2px 0;
+  border-color: transparent #eae8e4 transparent transparent;
+}
+.onOffSpikeLeft::before {
+  z-index: 2;
+  top: 1px;
+  border-width: 2px 4px 2px 0;
+  border-color: transparent rgba(0, 0, 0, 0.2) transparent transparent;
+}
+.onOffSpikeRight {
+  right: 3px;
+}
+.onOffSpikeRight::before {
+  z-index: 2;
+  top: 1px;
+  border-width: 2px 0 2px 3px;
+  border-color: transparent transparent transparent rgba(0, 0, 0, 0.2);
+}
+.onOffSpikeRight > div {
+  z-index: 1;
+  top: -1px;
+  border-width: 2px 0 2px 3px;
+  border-color: transparent transparent transparent #fffdf8;
+}
+.onOffSpikeRight::after {
+  z-index: 3;
+  top: 0;
+  border-width: 2px 0 2px 3px;
+  border-color: transparent transparent transparent #eae8e4;
+}
+
+/* --- Screen bezel --- */
+.gbScreenContainer {
+  position: absolute;
+  box-sizing: border-box;
+  top: 28px;
+  left: 50%;
+  margin-left: -96px;
+  width: 192px;
+  height: 138px;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 26px;
+  background-color: #73738a;
+  border: 1px solid #656565;
+  border-top: 1px solid rgba(0, 0, 0, 0.7);
+  box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.4);
+}
+
+.screenHeadline {
+  position: absolute;
+  width: 172px;
+  height: 6px;
+  left: 50%;
+  margin-left: -86px;
+  top: 6px;
+  pointer-events: none;
+}
+.screenHeadline::before,
+.screenHeadline::after {
+  position: absolute;
+  display: block;
+  content: "";
+  height: 2px;
+  width: 100%;
+}
+.screenHeadline::before {
+  top: 1px;
+  background: #5e234c;
+}
+.screenHeadline::after {
+  bottom: 1px;
+  background: #201d4b;
+}
+
+.screenHeadlineText {
+  position: absolute;
+  display: inline-block;
+  left: 49px;
+  height: 6px;
+  padding: 0 4px;
+  z-index: 1;
+  line-height: 6px;
+  font-size: 5px;
+  background: #73738a;
+  color: #bab6af;
+}
+
+.screen {
+  position: absolute;
+  height: 106px;
+  width: 118px;
+  margin-left: -58px;
+  margin-top: -52px;
+  overflow: hidden;
+  box-sizing: border-box;
+  top: 50%;
+  left: 50%;
+  background: #9aa13c;
+}
+.screen::after {
+  position: absolute;
+  display: block;
+  content: "";
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+  top: 0;
+  left: 0;
+  box-shadow: inset 2px 2px 4px 1px rgba(0, 0, 0, 0.7);
+}
+
+/* Battery */
+.batteryLight {
+  position: absolute;
+  display: block;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  top: 49px;
+  left: 10px;
+  border: 1px solid #383735;
+  box-shadow: inset 0 2px 0 0 rgba(0, 0, 0, 0.7);
+}
+.batteryLight::before {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: radial-gradient(ellipse at center, #61605d 0%, #43423f 100%);
+  box-shadow: inset 0 -1px 0 0 rgba(255, 255, 255, 0.2),
+    inset 0 1px 0 0 rgba(0, 0, 0, 0.6);
+}
+/* état "powerOn" local */
+.powerOn .batteryLight::before {
+  box-shadow: inset 0 -1px 0 0 rgba(255, 255, 255, 0.2),
+    inset 0 1px 0 0 rgba(0, 0, 0, 0.2);
+  background: radial-gradient(ellipse at center, #e56e6e 0%, #d93031 100%);
+}
+.powerOn .batteryLight::after {
+  position: absolute;
+  display: block;
+  content: "";
+  width: 9px;
+  height: 9px;
+  top: -2px;
+  left: -2px;
+  border-radius: 50%;
+  opacity: 0.7;
+  filter: blur(4px);
+  background: radial-gradient(ellipse at center, #e56e6e 0%, #d93031 100%);
+}
+
+.batteryLabel {
+  position: absolute;
+  display: inline-block;
+  pointer-events: none;
+  top: -10px;
+  left: -3px;
+  font-size: 5px;
+  color: #bab6af;
+}
+
+/* Logo */
+.logo {
+  position: absolute;
+  width: 125px;
+  height: 19px;
+  top: 170px;
+  left: 16px;
+  background-image: var(--gb-logo);
+  background-repeat: no-repeat;
+  background-position: left top;
+  background-size: contain;
+}
+
+/* --- D-Pad --- */
+.crossContainer {
+  position: absolute;
+  width: 67px;
+  height: 67px;
+  top: 208px;
+  left: 10px;
+  border-radius: 50%;
+  background: linear-gradient(to bottom, #d6d3d1 0%, #eae8e4 50%, #f2f1ed 100%);
+}
+.crossContainer::before {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 100%;
+  opacity: 0.1;
+  border-radius: 50%;
+  background-image: var(--gb-noise-texture);
+}
+
+/* spikes D-Pad */
+.dpadSpike {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+}
+.dpadSpike::before,
+.dpadSpike::after {
+  content: "";
+}
+.dpadSpike > div,
+.dpadSpike::before,
+.dpadSpike::after {
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-style: solid;
+}
+.dpadSpikeTop {
+  top: 1px;
+  left: 50%;
+  margin-left: -2px;
+}
+.dpadSpikeTop > div,
+.dpadSpikeTop::before,
+.dpadSpikeTop::after {
+  border-width: 0 2px 4px 2px;
+}
+.dpadSpikeTop > div {
+  top: -0.5px;
+  border-color: transparent transparent #fffdf8 transparent;
+}
+.dpadSpikeTop::before {
+  top: 1px;
+  border-color: transparent transparent #9b9a9a transparent;
+}
+.dpadSpikeTop::after {
+  top: 0;
+  border-color: transparent transparent #eae8e4 transparent;
+}
+
+.dpadSpikeLeft {
+  left: 2px;
+  top: 50%;
+  margin-top: -2px;
+}
+.dpadSpikeLeft > div,
+.dpadSpikeLeft::before,
+.dpadSpikeLeft::after {
+  border-width: 2px 4px 2px 0;
+}
+.dpadSpikeLeft > div {
+  top: -1px;
+  border-color: transparent #fffdf8 transparent transparent;
+}
+.dpadSpikeLeft::before {
+  top: 1px;
+  border-color: transparent #9b9a9a transparent transparent;
+}
+.dpadSpikeLeft::after {
+  top: 0;
+  border-color: transparent #eae8e4 transparent transparent;
+}
+
+.dpadSpikeRight {
+  right: 1px;
+  top: 50%;
+  margin-top: -1px;
+}
+.dpadSpikeRight > div,
+.dpadSpikeRight::before,
+.dpadSpikeRight::after {
+  border-width: 2px 0 2px 4px;
+}
+.dpadSpikeRight > div {
+  top: -1px;
+  border-color: transparent transparent transparent #fffdf8;
+}
+.dpadSpikeRight::before {
+  top: 1px;
+  border-color: transparent transparent transparent #9b9a9a;
+}
+.dpadSpikeRight::after {
+  top: 0;
+  border-color: transparent transparent transparent #eae8e4;
+}
+
+.dpadSpikeBottom {
+  bottom: 4px;
+  left: 50%;
+  margin-left: -2px;
+  transform: rotate(180deg);
+  opacity: 0.8;
+}
+.dpadSpikeBottom > div,
+.dpadSpikeBottom::before,
+.dpadSpikeBottom::after {
+  border-width: 0 2px 4px 2px;
+}
+.dpadSpikeBottom > div {
+  top: 0;
+  border-color: transparent transparent #fffdf8 transparent;
+}
+.dpadSpikeBottom::before {
+  top: -2px;
+  border-color: transparent transparent #9b9a9a transparent;
+}
+.dpadSpikeBottom::after {
+  top: -1px;
+  border-color: transparent transparent #eae8e4 transparent;
+}
+
+.cross {
+  position: absolute;
+  top: 6px;
+  left: 7px;
+  right: 6px;
+  bottom: 6px;
+}
+.crossMiddleBumb {
+  position: absolute;
+  height: 15px;
+  width: 15px;
+  top: 50%;
+  left: 50%;
+  margin: -8px 0 0 -7px;
+  background-color: #1d0515;
+  border-radius: 50%;
+  z-index: 1;
+  box-shadow: inset 0 -2px 1px 0 rgba(255, 255, 255, 0.4);
+  border-top: 2px solid rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+}
+.crossMiddleBumb::after {
+  content: "";
+  position: absolute;
+  display: block;
+  border-radius: 100%;
+  bottom: -1px;
+  left: 4px;
+  height: 70%;
+  width: 40%;
+  transform: rotate(-80deg);
+  background: radial-gradient(ellipse at center, #ffffff 0%, #0c0b10 50%)
+    transparent;
+}
+.crossMiddleBumb::before {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 4px;
+  bottom: 8px;
+  right: 4px;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 100%;
+}
+.cross::before {
+  content: "";
+  position: absolute;
+  display: inline-block;
+  height: 20px;
+  width: 20px;
+  left: 50%;
+  top: 50%;
+  margin: -9px 0 0 -10px;
+  background-color: #1d0515;
+  z-index: 1;
+}
+
+.topDown,
+.leftRight {
+  position: absolute;
+  background-color: #1d0515;
+  border-radius: 4px;
+  box-sizing: border-box;
+  border: 2px solid #080808;
+}
+.buttonTop,
+.buttonBottom,
+.buttonLeft,
+.buttonRight {
+  position: absolute;
+  cursor: pointer;
+  border-radius: 2px;
+}
+.buttonTop,
+.buttonBottom {
+  width: 100%;
+  height: 16px;
+}
+.buttonLeft,
+.buttonRight {
+  width: 18px;
+  height: 100%;
+}
+.buttonTop {
+  top: 0;
+}
+.buttonBottom {
+  bottom: 0;
+}
+.buttonLeft {
+  left: 0;
+}
+.buttonRight {
+  right: 0;
+}
+
+.topDown {
+  width: 20px;
+  height: 100%;
+  left: 50%;
+  margin-left: -10px;
+}
+.topDown .buttonTop,
+.topDown .buttonBottom {
+  box-shadow: inset 0 1px 2px 0 #fff, 0 4px 4px 0 rgba(0, 0, 0, 0.8);
+}
+.topDown .buttonTop:active,
+.topDown .buttonBottom:active,
+.topDown .buttonTop.btnPressed,
+.topDown .buttonBottom.btnPressed {
+  box-shadow: inset 0 1px 2px 0 rgba(255, 255, 255, 0.7),
+    0 2px 4px 0 rgba(0, 0, 0, 0.8);
+}
+.topDown .buttonTop .buttonStripe {
+  background: linear-gradient(to bottom, #0f1016 0%, #030304 100%);
+  opacity: 0.8;
+}
+.topDown .buttonBottom .buttonStripe {
+  background: linear-gradient(to bottom, #1c1e2b 0%, #0c0b10 100%);
+}
+
+.leftRight {
+  top: 50%;
+  margin-top: -10px;
+  width: 100%;
+  height: 20px;
+}
+
+.buttonStripe {
+  position: absolute;
+  border-radius: 7px;
+  overflow: hidden;
+}
+.buttonStripe::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--gb-noise-texture);
+  opacity: 0.1;
+}
+.topDown .buttonStripe {
+  left: 3px;
+  right: 3px;
+  height: 4px;
+}
+.topDown .buttonTop .buttonStripe:nth-child(1) {
+  top: 2px;
+}
+.topDown .buttonTop .buttonStripe:nth-child(2) {
+  top: 6px;
+}
+.topDown .buttonTop .buttonStripe:nth-child(3) {
+  top: 11px;
+}
+.topDown .buttonBottom .buttonStripe:nth-child(1) {
+  top: 3px;
+}
+.topDown .buttonBottom .buttonStripe:nth-child(2) {
+  top: 8px;
+}
+.topDown .buttonBottom .buttonStripe:nth-child(3) {
+  top: 12px;
+}
+
+.leftRight .buttonLeft,
+.leftRight .buttonRight {
+  box-shadow: inset 0 1px 2px 0 #fff, 0 4px 4px 0 rgba(0, 0, 0, 0.8);
+}
+.leftRight .buttonLeft:active,
+.leftRight .buttonRight:active,
+.leftRight .buttonLeft.btnPressed,
+.leftRight .buttonRight.btnPressed {
+  box-shadow: inset 0 1px 2px 0 rgba(255, 255, 255, 0.7),
+    0 3px 4px 0 rgba(0, 0, 0, 0.8);
+}
+.leftRight .buttonLeft .buttonStripe:nth-child(1) {
+  left: 2px;
+}
+.leftRight .buttonLeft .buttonStripe:nth-child(2) {
+  left: 7px;
+}
+.leftRight .buttonLeft .buttonStripe:nth-child(3) {
+  left: 11px;
+}
+.leftRight .buttonRight .buttonStripe:nth-child(1) {
+  right: 2px;
+}
+.leftRight .buttonRight .buttonStripe:nth-child(2) {
+  right: 7px;
+}
+.leftRight .buttonRight .buttonStripe:nth-child(3) {
+  right: 11px;
+}
+
+/* --- A / B --- */
+.buttonsAB {
+  position: absolute;
+  transform: rotate(-25deg);
+  height: 38px;
+  width: 76px;
+  border-radius: 24px;
+  top: 222px;
+  right: 9px;
+  background: linear-gradient(185deg, #bebbbc 0%, #eae8e4 51%, #fffdf8 100%);
+}
+.buttonsAB::before {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 100%;
+  border-radius: 24px;
+  opacity: 0.09;
+  background-image: var(--gb-noise-texture);
+}
+
+.buttonA,
+.buttonB {
+  position: absolute;
+  top: 5px;
+  width: 28px;
+  height: 28px;
+  transform: rotate(25deg);
+  box-sizing: border-box;
+  border-radius: 50%;
+  border-top: 2px solid #d74f73;
+  cursor: pointer;
+  background: linear-gradient(to bottom, #b30f42 0%, #640116 100%);
+  box-shadow: 0 3px 3px -1px rgba(0, 0, 0, 0.8),
+    inset 0 1px 2px -1px rgba(255, 255, 255, 0.8);
+}
+.buttonA::before,
+.buttonB::before {
+  position: absolute;
+  content: "";
+  width: 6px;
+  height: 6px;
+  transform: rotate(-25deg);
+  left: 50%;
+  bottom: -11px;
+  margin-left: 8px;
+  pointer-events: none;
+}
+.buttonA::after,
+.buttonB::after {
+  position: absolute;
+  content: "";
+  top: 0;
+  right: 7px;
+  bottom: 20px;
+  left: 7px;
+  border-radius: 50%;
+  box-shadow: inset 0 3px 0 -2px rgba(255, 255, 255, 0.4);
+}
+.buttonA:active,
+.buttonB:active,
+.buttonA.btnPressed,
+.buttonB.btnPressed {
+  box-shadow: 0 3px 2px -1px rgba(0, 0, 0, 0.8),
+    inset 0 1px 3px -1px rgba(255, 255, 255, 0.8);
+  border-top-width: 1px;
+}
+.buttonA:active::after,
+.buttonB:active::after,
+.buttonA.btnPressed::after,
+.buttonB.btnPressed::after {
+  opacity: 0.9;
+  box-shadow: inset 0 3px 2px -2px rgba(255, 255, 255, 0.3);
+}
+.buttonA {
+  right: 5px;
+}
+.buttonA::before {
+  background: var(--gb-a-label) top left no-repeat transparent;
+  background-size: contain;
+}
+.buttonB {
+  left: 5px;
+}
+.buttonB::before {
+  background: var(--gb-b-label) top left no-repeat transparent;
+  background-size: contain;
+}
+
+/* --- Start / Select --- */
+.start,
+.select {
+  position: absolute;
+  cursor: pointer;
+  top: 292px;
+  height: 15px;
+  width: 38px;
+  border-radius: 7px;
+  transform: rotate(-25deg);
+  background: linear-gradient(185deg, #9b9899 0%, #eae8e4 70%, #fffdf8 100%);
+  box-shadow: inset 0 -2px 1px -1px rgba(255, 255, 255, 0.9);
+}
+.startInner,
+.selectInner {
+  position: absolute;
+  height: 6px;
+  width: 30px;
+  top: 4px;
+  left: 4px;
+  border-radius: 7px;
+  background: linear-gradient(to bottom, #c0bcd7 0%, #727075 100%);
+  box-shadow: inset 0 3px 2px 1px rgba(255, 255, 255, 0.2),
+    0 3px 3px 0 rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(0, 0, 0, 0.5);
+}
+.start::before,
+.select::before {
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  border-radius: 24px;
+  opacity: 0.09;
+  background-image: var(--gb-noise-texture);
+}
+.start:active .startInner,
+.select:active .selectInner,
+.start.btnPressed .startInner,
+.select.btnPressed .selectInner {
+  box-shadow: inset 0 1px 2px 1px rgba(255, 255, 255, 0.2),
+    0 2px 2px 0 rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(0, 0, 0, 0.5);
+}
+.start:active::before,
+.select:active::before,
+.start.btnPressed::before,
+.select.btnPressed::before {
+  box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.2);
+}
+.start::after,
+.select::after {
+  content: "";
+  position: absolute;
+  display: block;
+  bottom: -7px;
+  pointer-events: none;
+}
+.start {
+  left: 104px;
+}
+.start::after {
+  height: 5px;
+  width: 28px;
+  left: 5px;
+  background: var(--gb-start-label) top left no-repeat transparent;
+  background-size: auto 5px;
+}
+.select {
+  left: 61px;
+}
+.select::after {
+  height: 5px;
+  width: 34px;
+  left: 3px;
+  background: var(--gb-select-label) top left no-repeat transparent;
+  background-size: auto 5px;
+}
+
+/* --- Speaker --- */
+.speaker {
+  width: 65px;
+  height: 40px;
+  position: absolute;
+  top: 307px;
+  right: 11px;
+  transform: rotate(-29deg);
+}
+.speaker::before,
+.speaker::after {
+  content: "";
+  position: absolute;
+  height: 34px;
+  left: -22px;
+  top: 33px;
+  width: 100px;
+  opacity: 0.7;
+}
+.speaker::before {
+  background-color: #8f8c88;
+  box-shadow: 0 -2px 3px 0 rgba(143, 140, 136, 0.8);
+}
+@media not all and (min-resolution: 0.001dpcm) {
+  @supports (-webkit-appearance: none) {
+    .speaker::before {
+      box-shadow: none;
+    }
+  }
+}
+.speaker::after {
+  opacity: 0.09;
+  background-image: var(--gb-noise-texture);
+}
+.speaker > div {
+  position: relative;
+  display: inline-block;
+  margin-left: 4px;
+  width: 5px;
+  height: 100%;
+  border-radius: 10px;
+  overflow: hidden;
+  background-color: #cec9c2;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+  border-left: 1px solid rgba(255, 255, 255, 0.6);
+  box-shadow: inset -1px 2px 2px 1px rgba(0, 0, 0, 0.55);
+}
+.speaker > div::before {
+  content: "";
+  display: block;
+  height: 100%;
+  width: 100%;
+  opacity: 0.09;
+  background-image: var(--gb-noise-texture);
+}
+.speaker > div::after {
+  content: "";
+  position: absolute;
+  top: 3px;
+  left: 0;
+  display: block;
+  width: 2px;
+  height: 30px;
+  background-color: #4a4645;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.8);
+}
+.speaker > div:nth-child(1) {
+  margin-left: 0;
+}
+.speaker > div:nth-child(1)::after {
+  display: none;
+}
+.speakerInnerShadow {
+  position: absolute;
+  height: 8px;
+  width: 100%;
+  opacity: 0.8;
+  bottom: 0;
+  left: 0;
+  overflow: hidden;
+  background-color: #8f8c88;
+  box-shadow: 0 -2px 3px 0 rgba(143, 140, 136, 0.8);
+}
+.speakerInnerShadow::after {
+  content: "";
+  display: block;
+  position: absolute;
+  height: 200%;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  box-shadow: inset -1px 2px 2px 1px rgba(0, 0, 0, 0.55);
+}

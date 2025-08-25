@@ -80,6 +80,22 @@ export default function BusinessCard({
     const card = cardRef.current;
     if (!card) return;
 
+    // Tilt uniquement si pointeur fin + hover (desktop)
+    const canTilt =
+      typeof window !== "undefined" &&
+      window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+
+    // Bonus accessibilité : respecte l’OS si "réduire les animations"
+    const reduceMotion =
+      typeof window !== "undefined" &&
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    if (!canTilt || reduceMotion) {
+      // État neutre sans tilt
+      handleMouseLeave();
+      return;
+    }
+
     const onEnter = (e: MouseEvent): void => calculateAngle(e);
     const onMove = (e: MouseEvent): void => calculateAngle(e);
     const onLeave = (): void => handleMouseLeave();
@@ -128,18 +144,7 @@ export default function BusinessCard({
           {label} <CaretRight size={12} />
         </span>
         <span className={styles.glare} ref={glareRef} />
-        <span
-          style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            position: "relative",
-            pointerEvents: "auto",
-            height: "100%",
-          }}
-        >
-          {frontContent}
-        </span>
+        <span className={styles.frontContent}>{frontContent}</span>
       </span>
     </div>
   );

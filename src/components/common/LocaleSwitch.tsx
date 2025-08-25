@@ -1,22 +1,25 @@
 "use client";
 
-import { useState, useTransition } from "react";
 import {
   Listbox,
   ListboxButton,
   ListboxOption,
   ListboxOptions,
 } from "@headlessui/react";
+import { cn } from "@/utils/classnames";
 import { routing } from "@/i18n/routing";
+import { useParams } from "next/navigation";
+import { useState, useTransition } from "react";
+import { useIsMobile } from "@/hooks/useIsMobile";
 import { useLocale, useTranslations } from "next-intl";
 import { Check, CaretUpDown } from "@phosphor-icons/react";
 import { useRouter, usePathname } from "@/i18n/navigation";
-import { useParams } from "next/navigation";
 
 export default function LocaleSwitch() {
   const t = useTranslations("LocaleSwitch");
   const currentLocale = useLocale();
   const router = useRouter();
+  const isMobile = useIsMobile();
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [isPending, startTransition] = useTransition();
   const pathname = usePathname();
@@ -55,7 +58,12 @@ export default function LocaleSwitch() {
               />
             </span>
           </ListboxButton>
-          <ListboxOptions className="absolute z-10 mt-1 max-h-60 w-full overflow-auto rounded-md bg-element py-1 text-base shadow-lg ring-0 focus:outline-none sm:text-sm">
+          <ListboxOptions
+            className={cn(
+              "absolute z-10 max-h-60 w-full overflow-auto rounded-md bg-element py-1 text-base shadow-lg ring-0 focus:outline-none sm:text-sm",
+              isMobile ? "bottom-full mb-1" : "top-full mt-1"
+            )}
+          >
             {locales.map((loc) => (
               <ListboxOption
                 key={loc.id}
@@ -69,9 +77,10 @@ export default function LocaleSwitch() {
                 {({ selected: isSelected }) => (
                   <>
                     <span
-                      className={`block truncate ${
+                      className={cn(
+                        "block truncate",
                         isSelected ? "font-semibold" : "font-normal"
-                      }`}
+                      )}
                     >
                       {loc.label}
                     </span>

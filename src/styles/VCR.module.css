@@ -1,0 +1,502 @@
+/* Main Container */
+.vcrContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 1;
+  background-color: #73d0ff;
+}
+
+.vcrFace {
+  width: 340px;
+  height: 78px;
+  position: relative;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  background: linear-gradient(to bottom, #59595a, #4b4a4a);
+  box-sizing: border-box;
+}
+
+.vcrFace::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 20px;
+  background-image: linear-gradient(to top, #59595a, #4b4a4a);
+  transform: perspective(30px) rotateX(20deg);
+  transform-origin: bottom center;
+  top: -20px;
+  left: 0;
+}
+
+/* Tape Tank */
+.tapeTank {
+  position: absolute;
+  z-index: 20;
+  top: 8px;
+  left: 84px;
+  border-radius: 2px;
+  height: 30px;
+  width: 176px;
+  border: 1px solid #0f0f0f;
+  background: linear-gradient(to bottom, #59595a, #4b4a4a);
+}
+
+.tankLabel {
+  position: absolute;
+  top: 18px;
+  left: 36px;
+  font-size: 3px;
+  color: black;
+  font-weight: 300;
+  z-index: 20;
+}
+
+.tankAngle {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 20;
+  height: 5px;
+  width: 100%;
+  background: linear-gradient(to right, #656567, #4b4a4a);
+}
+
+/* VCR Screen */
+.vcrScreen {
+  position: absolute;
+  top: 43px;
+  left: 116px;
+  width: 112px;
+  height: 24px;
+  z-index: 20;
+  border-radius: 2px;
+  background: black;
+}
+
+.vcrModel {
+  position: absolute;
+  bottom: 2px;
+  left: 4px;
+  font-size: 4px;
+  color: #c0c0c0;
+}
+
+.screenGrid {
+  margin-left: 22px;
+  margin-top: 6px;
+  margin-right: 32px;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 1px 0;
+  justify-items: center;
+  padding: 1px;
+}
+
+.screenLabel {
+  font-size: 2px;
+  text-transform: uppercase;
+  color: #c0c0c0;
+}
+
+.vcrLed {
+  width: 4px;
+  height: 2px;
+  border-radius: 9999px;
+}
+
+.vcrLedOn {
+  background: linear-gradient(
+    to right,
+    red 0.5px,
+    var(--primary, #fbbf24) 3.5px
+  );
+}
+
+/* Buttons */
+.pwrBtn {
+  position: absolute;
+  top: 25px;
+  left: 16px;
+  z-index: 30;
+  padding: 0 2px;
+  height: 5px;
+  width: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  border: 0.5px solid #0f0f0f;
+  cursor: pointer;
+  background: linear-gradient(to bottom, #9a9a9c, #656567);
+}
+
+.stpBtn {
+  position: absolute;
+  top: 25px;
+  left: 46px;
+  z-index: 30;
+  padding: 0 2px;
+  height: 5px;
+  width: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  border: 0.5px solid #0f0f0f;
+  cursor: pointer;
+  background: linear-gradient(to bottom, #9a9a9c, #656567);
+}
+
+.btnDivider {
+  height: 0.5px;
+  width: 100%;
+  background: #333333;
+}
+
+.progContainer {
+  position: absolute;
+  top: 54px;
+  left: 84px;
+  z-index: 30;
+  display: flex;
+  align-items: center;
+}
+
+.downBtn {
+  width: 12px;
+  height: 5px;
+  padding-left: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  border-radius: 9999px 0 0 9999px;
+  border: 0.5px solid #0f0f0f;
+  cursor: pointer;
+  background: linear-gradient(to bottom, #9a9a9c, #656567);
+}
+
+.upBtn {
+  width: 12px;
+  height: 5px;
+  padding-right: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  border-radius: 0 9999px 9999px 0;
+  border-top: 0.5px solid #0f0f0f;
+  border-bottom: 0.5px solid #0f0f0f;
+  border-right: 0.5px solid #0f0f0f;
+  cursor: pointer;
+  background: linear-gradient(to bottom, #9a9a9c, #656567);
+}
+
+.recContainer {
+  position: absolute;
+  top: 54px;
+  right: 70px;
+  z-index: 30;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.recBtn {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: 0.5px solid #0f0f0f;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  background: linear-gradient(to bottom, #9a9a9c, #656567);
+}
+
+.recRelief {
+  width: 2px;
+  height: 2px;
+  border-radius: 50%;
+  background: linear-gradient(335deg, #9a9a9c, #656567);
+}
+
+.pauseBtn {
+  z-index: 30;
+  padding: 0 2px;
+  height: 5px;
+  width: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  border: 0.5px solid #0f0f0f;
+  cursor: pointer;
+  background: linear-gradient(to bottom, #9a9a9c, #656567);
+}
+
+/* Playing controls */
+.playingContainer {
+  position: absolute;
+  top: 12px;
+  right: 10px;
+  bottom: 16px;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  z-index: 30;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #616162, #59595a);
+}
+
+.secCircle {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(to left, #59595a, #4b4a4a, #59595a);
+}
+
+.terCircle {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #616162, #59595a);
+}
+
+.quartCircle {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(to left, #59595a, #4b4a4a, #59595a);
+}
+
+.quintCircle {
+  width: 24px;
+  height: 24px;
+  z-index: 40;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 0.5px solid #0f0f0f;
+  background: linear-gradient(135deg, #616162, #59595a);
+}
+
+.sixthCircle {
+  width: 20px;
+  height: 20px;
+  z-index: 40;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(to left, #59595a, #4b4a4a, #59595a);
+}
+
+.vcrPlayBtn {
+  width: 18px;
+  height: 18px;
+  z-index: 40;
+  border: 0.5px solid #0f0f0f;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  background: linear-gradient(to left, #616162, #59595a);
+}
+
+.rewindBtn {
+  position: absolute;
+  z-index: 50;
+  top: 30px;
+  left: 5px;
+  cursor: pointer;
+}
+
+.fastForwardBtn {
+  position: absolute;
+  z-index: 50;
+  top: 30px;
+  right: 5px;
+  cursor: pointer;
+}
+
+/* RGB Bar */
+.rgbBg {
+  position: absolute;
+  bottom: 10px;
+  left: 16px;
+  z-index: 20;
+  padding: 1px;
+  border-radius: 9999px;
+  background: radial-gradient(#9a9a9c, #4b4a4a);
+}
+
+.rgbBar {
+  height: 15px;
+  width: 48px;
+  border: 1px solid #333333;
+  border-radius: 9999px;
+  background: linear-gradient(to bottom, #59595a, #4b4a4a);
+}
+
+/* Sticker */
+.stickerContainer {
+  position: absolute;
+  top: 12px;
+  right: 62px;
+  z-index: 10;
+  width: 13px;
+  height: 13px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #c0c0c0, #9a9a9c);
+  clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 25% 100%, 0% 75%);
+}
+
+.clpSticker {
+  width: 12px;
+  height: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1px;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 2px;
+  text-align: center;
+  color: white;
+  clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 25% 100%, 0% 75%);
+  background: linear-gradient(135deg, #0b2c80, #051f61);
+}
+
+/* Angles */
+.vcrAngleTop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  height: 6px;
+  width: 100%;
+  background: linear-gradient(to right, #656567, #4b4a4a);
+}
+
+.vcrAngleMid {
+  position: absolute;
+  top: 32px;
+  left: 0;
+  z-index: 10;
+  height: 8px;
+  width: 100%;
+  background: linear-gradient(to right, #656567, #4b4a4a);
+}
+
+.vcrAngleBottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 10;
+  height: 8px;
+  width: 100%;
+  border-top: 1px solid #656567;
+  background: #454545;
+  background-image: linear-gradient(to top, #404040, #4b4a4a);
+}
+
+/* Specials elements */
+.progTriangle {
+  width: 3px;
+  height: 3px;
+  background: #0f0f0f;
+  clip-path: polygon(0 0, 0% 100%, 100% 50%);
+}
+
+.recLabel {
+  width: 2.5px;
+  height: 2.5px;
+  border-radius: 50%;
+  background: #b91c1c;
+}
+
+/* Buttons labels */
+.powerLabel {
+  position: absolute;
+  top: -5px;
+  font-size: 4px;
+  color: #0f0f0f;
+  display: flex;
+  align-items: center;
+}
+
+.stopLabel {
+  position: absolute;
+  top: -5.5px;
+  left: 4px;
+  font-size: 4px;
+  color: #0f0f0f;
+  display: flex;
+  gap: 1px;
+  align-items: center;
+}
+
+.stopSquare {
+  width: 2.5px;
+  height: 2.5px;
+  background: #0f0f0f;
+}
+
+.progLabel {
+  position: absolute;
+  top: -5px;
+  left: 4px;
+  font-size: 3px;
+  color: #0f0f0f;
+  display: flex;
+  align-items: center;
+  gap: 1px;
+}
+
+.recLabelText {
+  position: absolute;
+  top: -5px;
+  left: -1px;
+  font-size: 3px;
+  color: #0f0f0f;
+  display: flex;
+  align-items: center;
+  gap: 1px;
+}
+
+.pauseLabel {
+  position: absolute;
+  top: -5px;
+  right: 6px;
+  font-size: 3px;
+  color: #0f0f0f;
+  display: flex;
+  align-items: center;
+  gap: 1px;
+}
+
+/* Rotations */
+.rotate90 {
+  transform: rotate(90deg);
+}
+
+.rotateNeg90 {
+  transform: rotate(-90deg);
+}
+
+.rotateNeg135 {
+  transform: rotate(-135deg);
+}

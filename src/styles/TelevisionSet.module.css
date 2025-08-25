@@ -1,0 +1,272 @@
+/* Container */
+.monitor {
+  position: relative;
+  width: 19.5rem;
+  height: 19.5rem;
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #3f3933;
+  border-bottom-left-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+.monitor::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 20px;
+  background-image: linear-gradient(to top, #5c554e, #3f3933);
+  transform: perspective(30px) rotateX(20deg);
+  transform-origin: bottom center;
+  top: -20px;
+  left: 0;
+}
+
+/* Screen */
+.monitor-screen {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border: 24px solid transparent;
+  border-image-source: url(/bezel_gray.png);
+  border-image-slice: 30 fill;
+  border-image-outset: 0;
+  overflow: hidden;
+}
+.monitor-screen::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0.75) 100%
+  );
+}
+
+/* Video layer */
+.video {
+  position: absolute;
+  z-index: 20;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity 150ms ease-in-out;
+}
+.video--visible {
+  opacity: 1;
+}
+.video--hidden {
+  opacity: 0;
+}
+
+/* Static noise overlay */
+.noise {
+  position: absolute;
+  border-radius: 0.375rem;
+  z-index: 10;
+  top: -500px;
+  right: -500px;
+  bottom: -500px;
+  left: -500px;
+  background: transparent
+    url(https://www.dropbox.com/s/h7ab1c82ctzy83n/noise.png?raw=1) 0 0 / 320px
+    320px repeat;
+  opacity: 0.35;
+  animation: noise 1s steps(8, end) infinite both;
+}
+@keyframes noise {
+  0% {
+    transform: translate(0px, 0px);
+  }
+  10% {
+    transform: translate(-100px, 100px);
+  }
+  20% {
+    transform: translate(150px, -100px);
+  }
+  30% {
+    transform: translate(-100px, 100px);
+  }
+  40% {
+    transform: translate(100px, -150px);
+  }
+  50% {
+    transform: translate(-100px, 200px);
+  }
+  60% {
+    transform: translate(-200px, -100px);
+  }
+  70% {
+    transform: translate(50px, 100px);
+  }
+  80% {
+    transform: translate(100px, -150px);
+  }
+  90% {
+    transform: translate(0px, 200px);
+  }
+  100% {
+    transform: translate(-100px, 100px);
+  }
+}
+
+/* Mute icon & overlay */
+.mute-icon {
+  position: absolute;
+  z-index: 50;
+  bottom: 10px;
+  left: 10px;
+  color: #6fff00;
+  font-size: 14px;
+}
+.overlay {
+  position: absolute;
+  z-index: 50;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 1px solid #6fff00;
+  color: #6fff00;
+  font-size: 6px;
+  text-transform: uppercase;
+  padding: 8px;
+  background: rgba(27, 27, 27, 0.9);
+}
+.overlay--message {
+  top: 8px;
+  left: auto;
+  right: 8px;
+  transform: none;
+  border-color: transparent;
+  font-size: 6px;
+  padding: 6px 8px;
+}
+
+/* Controls container */
+.monitor-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 0 12px;
+  width: 100%;
+  height: 46px;
+}
+.controls-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Power button & LED */
+.monitor-power-brd {
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(#5c554e, #3f3933);
+}
+.monitor-power {
+  width: 1.25rem;
+  height: 1.25rem;
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  background: linear-gradient(to left, #463f38, #443e38, #463f38);
+  transition: box-shadow 120ms ease, border-color 120ms ease;
+}
+.monitor-power--off {
+  border: 0.5px solid #0f0f0f;
+  box-shadow: inset 0 0 0 rgba(0, 0, 0, 0);
+}
+.monitor-power--on {
+  border: 0 solid transparent;
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.12),
+    inset 0 -1px 2px rgba(0, 0, 0, 0.35);
+}
+
+.monitor-led {
+  width: 0.25rem;
+  height: 0.25rem;
+  border-radius: 9999px;
+}
+.monitor-led--on {
+  background: #b91c1c;
+}
+.monitor-led--off {
+  background: linear-gradient(to left, #616162, #59595a);
+}
+
+/* Generic round buttons */
+.monitor-btn {
+  width: 0.625rem;
+  height: 0.625rem;
+  border: 0.5px solid #0f0f0f;
+  border-radius: 9999px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(to left, #463f38, #443e38, #463f38);
+}
+
+/* Double group */
+.double-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px;
+  border-radius: 9999px;
+  border: 0.5px solid #39342e;
+  box-shadow: inset 0 1px 0 rgba(46, 42, 37, 0.6),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.35);
+}
+
+/* Utilities */
+.rotate-180 {
+  transform: rotate(180deg);
+}
+.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Volume indicator */
+.volume-indicator {
+  position: absolute;
+  z-index: 50;
+  bottom: 10px;
+  left: 32px;
+  transition: opacity 300ms ease;
+}
+.volume-bars {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+.volume-bar {
+  width: 4px;
+  height: 12px;
+  border: 1px solid #6fff00;
+  background: transparent;
+}
+.volume-bar--active {
+  background: #6fff00;
+}
+.volume-percent {
+  color: #6fff00;
+  font-size: 12px;
+  margin-left: 6px;
+}

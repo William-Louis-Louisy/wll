@@ -1,79 +1,72 @@
 "use client";
 import { cn } from "@/utils/classnames";
 import LabCellWrapper from "../LabCellWrapper";
+import styles from "../../styles/Cassette.module.css";
 
 export default function Cassette({ isPlaying }: { isPlaying: boolean }) {
   return (
     <LabCellWrapper bgColor="#A2FF73">
-      <div className="cassette-wrapper">
-        <div className="cassette-screws">
+      <div className={styles.cassetteWrapper}>
+        <div className={styles.cassetteScrews}>
           {[...Array(2)].map((_, i) => (
-            <div key={i} className="screw" />
+            <div key={i} className={styles.screw} />
           ))}
         </div>
-        <div className="cassette-screws-t">
+        <div className={styles.cassetteScrewsT}>
           {[...Array(2)].map((_, i) => (
-            <div key={i} className="screw" />
+            <div key={i} className={styles.screw} />
           ))}
         </div>
 
-        <div className="cassette-label">
-          <span className="border-1 border-gray-700 font-bold text-gray-700 py-0.5 rounded-xs px-1">
-            A
-          </span>
+        <div className={styles.cassetteLabel}>
+          <span className={styles.labelA}>A</span>
 
-          <span className="bottom-0.5 absolute left-2 font-black font-space-grotesk text-sm text-gray-700 tracking-tighter">
-            STEREO
-          </span>
+          <span className={styles.stereoLabel}>STEREO</span>
 
-          <div className="arrow"></div>
+          <div className={styles.arrow}></div>
         </div>
 
-        <div className="cassette-color-bar-t" />
-        <div className="cassette-color-bar-b" />
+        <div className={styles.cassetteColorBarT} />
+        <div className={styles.cassetteColorBarB} />
 
-        <div className="cassette-window">
-          <div className="reel-container">
-            <div className={cn("tape-spoolbar", isPlaying ? "spin" : "")}>
+        <div className={styles.cassetteWindow}>
+          <div className={styles.reelContainer}>
+            <div
+              className={cn(styles.tapeSpoolbar, isPlaying ? styles.spin : "")}
+            >
               <div></div>
               <div></div>
               <div></div>
             </div>
-            <div className={cn("tape-spoolbar", isPlaying ? "spin" : "")}>
+            <div
+              className={cn(styles.tapeSpoolbar, isPlaying ? styles.spin : "")}
+            >
               <div></div>
               <div></div>
               <div></div>
             </div>
           </div>
 
-          <div className="absolute left-2 flex flex-col items-start">
-            <span className="font-light tracking-tighter text-[6px]">NR</span>
-            <span className="mt-0.5 font-light tracking-tighter leading-1.5 text-[6px] inline-flex items-center gap-0.5">
-              <div className="size-1.5 aspect-square border-1"></div>
+          <div className={styles.nrSection}>
+            <span className={styles.nrText}>NR</span>
+            <span className={styles.nrOption}>
+              <div className={styles.checkbox}></div>
               Yes
             </span>
-            <span className="mt-0.5 font-light tracking-tighter leading-1.5 text-[6px] inline-flex items-center gap-0.5">
-              <div className="size-1.5 aspect-square border-1"></div>
+            <span className={styles.nrOption}>
+              <div className={styles.checkbox}></div>
               No
             </span>
           </div>
-          <div className="absolute right-2 flex flex-col items-end">
-            <span className="font-black font-space-grotesk italic text-2xl leading-6">
-              90
-            </span>
-            <span className="font-light tracking-tighter text-[7px]">
-              2 X 45 MIN
-            </span>
-            <span className="font-light tracking-tighter text-[7px]">
-              LOW NOISE
-            </span>
+          <div className={styles.durationSection}>
+            <span className={styles.durationMain}>90</span>
+            <span className={styles.durationSub}>2 X 45 MIN</span>
+            <span className={styles.durationSub}>LOW NOISE</span>
           </div>
         </div>
 
-        <div className="cassette-ridges" />
-
-        <div className="cassette-footer-bg"></div>
-        <div className="cassette-footer"></div>
+        <div className={styles.cassetteFooterBg}></div>
+        <div className={styles.cassetteFooter}></div>
       </div>
     </LabCellWrapper>
   );

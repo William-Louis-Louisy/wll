@@ -1,19 +1,20 @@
 "use client";
 
-import React, { useCallback, useState } from "react";
 import VCR from "@/components/vault/VCR";
+import LabModal from "@/components/LabModal";
+import { useChrono } from "@/hooks/useChrono";
 import GameBoy from "@/components/vault/GameBoy";
-import { FeedbackStatus, ProgressPayload } from "@/types/dartgame.type";
 import { useAudio } from "@/contexts/AudioContext";
 import { useVideo } from "@/contexts/VideoContext";
 import Cassette from "@/components/vault/Cassette";
-import Walkman from "@/components/vault/walkman/Walkman";
-import TelevisionSet from "@/components/vault/TelevisionSet";
-import DartGame from "@/components/vault/dartboard/DartGame";
+import React, { useCallback, useState } from "react";
 import AkaiMPC from "@/components/vault/mpc/AkaiMPC";
 import Scoreboard from "@/components/vault/Scoreboard";
-import { useChrono } from "@/hooks/useChrono";
 import { defaultSequences } from "@/lib/dartSequences";
+import Walkman from "@/components/vault/walkman/Walkman";
+import DartGame from "@/components/vault/dartboard/DartGame";
+import TelevisionSet from "@/components/vault/monitor/TelevisionSet";
+import { FeedbackStatus, ProgressPayload } from "@/types/dartgame.type";
 
 export default function Lab() {
   const { isVideoPlaying, videoRef, playVideo, pauseVideo, stopVideo } =
@@ -44,7 +45,6 @@ export default function Lab() {
   }, [chrono]);
 
   const handleReset = useCallback(() => {
-    // reset côté UI + envoyer un signal de reset à DartGame
     chrono.reset();
     setSeqIdx(0);
     setStepIdx(0);
@@ -54,32 +54,32 @@ export default function Lab() {
   }, [chrono]);
 
   return (
-    <main>
-      <div className="min-h-page w-full overflow-hidden mt-16 grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-4">
-        <Cassette isPlaying={useAudio().isPlaying} />
-        <Walkman />
-        <VCR play={playVideo} pause={pauseVideo} stop={stopVideo} />
-        <TelevisionSet isVideoDisplayed={isVideoPlaying} videoRef={videoRef} />
-        <GameBoy />
-        <DartGame
-          sequences={defaultSequences}
-          onProgressUpdate={handleProgressUpdate}
-          onFeedbackChange={handleFeedbackChange}
-          onFirstOuterClick={handleFirstOuterClick}
-          resetSignal={resetSignal}
-        />
-        <Scoreboard
-          sequenceIndex={seqIdx}
-          totalSequences={totalSequences}
-          stepIndex={stepIdx}
-          totalSteps={totalSteps}
-          elapsedMs={chrono.elapsedMs}
-          running={chrono.running}
-          feedback={feedback}
-          onReset={handleReset}
-        />
-        <AkaiMPC />
-      </div>
+    <main className="min-h-page w-full overflow-hidden mt-16 grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-4">
+      <Cassette isPlaying={useAudio().isPlaying} />
+      <Walkman />
+      <VCR play={playVideo} pause={pauseVideo} stop={stopVideo} />
+      <TelevisionSet isVideoDisplayed={isVideoPlaying} videoRef={videoRef} />
+      <GameBoy />
+      <DartGame
+        sequences={defaultSequences}
+        onProgressUpdate={handleProgressUpdate}
+        onFeedbackChange={handleFeedbackChange}
+        onFirstOuterClick={handleFirstOuterClick}
+        resetSignal={resetSignal}
+      />
+      <Scoreboard
+        sequenceIndex={seqIdx}
+        totalSequences={totalSequences}
+        stepIndex={stepIdx}
+        totalSteps={totalSteps}
+        elapsedMs={chrono.elapsedMs}
+        running={chrono.running}
+        feedback={feedback}
+        onReset={handleReset}
+      />
+      <AkaiMPC />
+
+      <LabModal storageKey="lab:intro:seen:v1" />
     </main>
   );
 }

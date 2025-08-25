@@ -1,8 +1,9 @@
 import React from "react";
+import styles from "../../../styles/Walkman.module.css";
 
 export default function WalkmanLogo() {
   return (
-    <div className="walkman-logo">
+    <div className={styles.walkmanLogo}>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width={125}
@@ -29,11 +30,9 @@ export default function WalkmanLogo() {
         />
       </svg>
 
-      <div className="flex flex-col justify-end text-[#b9b9b9]">
-        <span className="text-[7px] leading-[7px] text-right font-semibold">
-          WL-FX317
-        </span>
-        <span className="text-xs leading-3 font-bold">FM/AM</span>
+      <div className={styles.walkmanLogoText}>
+        <span className={styles.walkmanLogoModel}>WL-FX317</span>
+        <span className={styles.walkmanLogoType}>FM/AM</span>
       </div>
     </div>
   );

@@ -4,14 +4,30 @@
     "title": "Fullstack Developer",
     "flip": "Flip card"
   },
+  "DartGame": {
+    "successTitle": "Sequence success !",
+    "successMessage": "Next",
+    "failTitle": "Wrong answer !",
+    "failMessage": "Retry"
+  },
+
   "HomePage": {
     "title": "Fullstack Developer",
     "description": "Hello, I am <name>William Louis-Louisy</name>. I specialize in crafting high-performance, intuitive applications and transform your ideas into robust and scalable digital solutions.",
     "button": "Discover my projects"
   },
+  "LabModal": {
+    "title": "Welcome to the Lab",
+    "description": "An interactive space for experiments, animations, and UI. Nothing is fixed, everything evolves.",
+    "tips": "Tip: Follow your curiosity. Try hovering, keyboard, and sometimes sound."
+  },
   "LocaleSwitch": {
     "label": "Change language",
     "locale": "{locale, select, fr {🇫🇷} en {🇺🇸} other {Unknown}}"
+  },
+  "Location": {
+    "title": "Location",
+    "description": "Based in Lyon — remote-friendly / hybrid within the city / occasional on-site travel across the AuRA region, Paris, and Geneva (~2 hours from Lyon by high-speed rail)"
   },
   "Navigation": {
     "projects": "Projects",
@@ -34,5 +50,29 @@
     "today": "Today",
     "fullstack": "Fullstack Developer",
     "freelancer": "I support my clients from the initial idea to the production launch of their applications."
+  },
+  "WorkingMethods": {
+    "craftsmanship": "Craftsmanship (DRY, SOLID, KISS)",
+    "dry": "I avoid any duplication of logic or information. I factor (functions, modules, models) to reduce bugs and the cost of changes.",
+    "solid": "I produce an open source code where each module has a single responsibility by avoiding its dependence on methods that it does not use.",
+    "kiss": "Clear naming, short modules, systematic reviews, continuous refactoring.",
+    "typescript": "TypeScript strict to prevent rather than heal.",
+    "tests": "Pragmatic tests unitaries → integrations → E2E on critical paths.",
+    "adaptability": "Adaptability & Collaboration",
+    "scrumTitle": "Pragmatic Scrum",
+    "scrum": "daily short (blocking points / next increment), objective-oriented planning, demo/review at each sprint, focused retrospective on 1-2 concrete actions.",
+    "reviewingTitle": "Reviewing & Quality",
+    "reviewing": "small PRs, occasional pair programming, traced merge decisions.",
+    "communicationTitle": "Communication",
+    "communication": "indirect by default (issues/PR/docs), direct when necessary.",
+    "designSystems": "Design Systems (Tailwind, MUI)",
+    "wireframe": "UI wireframe",
+    "multimedia": "Multimedia",
+    "management": "Management",
+    "designSystemsDef": "design tokens, typed variants, cross-screen consistency, integrated accessibility.",
+    "wireframeDef": "from zero (wireframe → hi-fi) or improvement, respect grids/constraints.",
+    "multimediaDef": "video montage & music composition for product demos (teasers, app previews).",
+    "managementDef": "priorization, tech-product-design coordination, operational feedback.",
+    "transferableSkills": "Transferable skills"
   }
 }

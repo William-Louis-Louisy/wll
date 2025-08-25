@@ -1,9 +1,10 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
-import { SpeakerSimpleSlash } from "@phosphor-icons/react";
 import { cn } from "@/utils/classnames";
 import VolumeIndicator from "./VolumeIndicator";
+import React, { useEffect, useState } from "react";
+import { SpeakerSimpleSlash } from "@phosphor-icons/react";
+import styles from "../../../styles/TelevisionSet.module.css";
 
 export default function MonitorScreen({
   powered,
@@ -40,14 +41,15 @@ export default function MonitorScreen({
   }, [volume, videoRef]);
 
   return (
-    <div className="monitor-screen">
-      {/* Affichage vidéo */}
+    <div className={styles["monitor-screen"]}>
       {powered && (
         <video
           ref={videoRef}
           className={cn(
-            "z-20 absolute inset-0 w-full h-full object-cover transition-opacity duration-150 ease-in-out",
-            isVideoDisplayed ? "opacity-100" : "opacity-0"
+            styles["video"],
+            isVideoDisplayed
+              ? styles["video--visible"]
+              : styles["video--hidden"]
           )}
           src={"/video/ina_video.mp4"}
           autoPlay={isVideoDisplayed}
@@ -55,20 +57,19 @@ export default function MonitorScreen({
           muted={muted}
         />
       )}
-      {/* Noise Effect */}
-      {powered && <div className="noise" />}
-      {/* Speaker	Icon */}
+
+      {powered && <div className={styles["noise"]} />}
+
       {powered && (
         <SpeakerSimpleSlash
           weight="bold"
           className={cn(
-            "absolute z-50 bottom-2.5 left-2.5 text-[#6fff00]",
-            muted ? "block" : "hidden"
+            styles["mute-icon"],
+            muted ? styles["visible"] : styles["hidden"]
           )}
         />
       )}
 
-      {/* Volume Indicator */}
       {powered && (
         <VolumeIndicator
           volume={volume}
@@ -76,15 +77,14 @@ export default function MonitorScreen({
         />
       )}
 
-      {/* Overlay menu */}
       {powered && menuOpen && (
-        <div className="absolute z-50 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 border border-[#6fff00] text-[#6fff00] text-[6px] uppercase p-2 bg-[#1b1b1b]/90">
+        <div className={cn(styles["overlay"], styles["overlay--menu"])}>
           <span>Menu Not Available</span>
         </div>
       )}
-      {/* Overlay message */}
+
       {powered && messageVisible && (
-        <div className="absolute z-50 top-2 right-2 text-[#6fff00] text-[6px] uppercase p-2 bg-[#1b1b1b]/90">
+        <div className={cn(styles["overlay"], styles["overlay--message"])}>
           <span>No Signal</span>
         </div>
       )}

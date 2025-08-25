@@ -36,8 +36,8 @@ export default function CardContent({
       <span className="absolute z-99">
         <Image
           src={picture}
-          width={128}
-          height={128}
+          width={112}
+          height={112}
           alt="Picture of the author"
           className="rounded-full transform scale-100 hover:scale-105 transition-all duration-100 ease-out shadow-[0_4px_9px_rgba(0,0,0,0.2)]"
         />

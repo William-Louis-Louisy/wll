@@ -4,18 +4,33 @@
     "title": "Développeur Fullstack",
     "flip": "Tourner la carte"
   },
+  "DartGame": {
+    "successTitle": "Séquence réussie !",
+    "successMessage": "Suivant",
+    "failTitle": "Mauvaise réponse !",
+    "failMessage": "Recommencer"
+  },
   "HomePage": {
     "title": "Développeur Fullstack",
     "description": "Bonjour, je suis <name>William Louis-Louisy</name>. Je conçois des applications performantes, intuitives et je transforme vos idées en produits digitaux robustes et évolutifs.",
     "button": "Découvrir mes projets"
   },
+  "LabModal": {
+    "title": "Bienvenue dans le Lab",
+    "description": "Un espace d'expérimentations visuelles et interactives. J'y teste des idées de design, d'animation et d'UI. Rien n'est figé, tout évolue.",
+    "tips": "Astuce : suivez votre curiosité. Essayez le survol, le clavier… et parfois le son."
+  },
   "LocaleSwitch": {
     "label": "Changer la langue",
     "locale": "{locale, select, fr {🇫🇷} en {🇺🇸} other {Inconnu}}"
   },
+  "Location": {
+    "title": "Localisation",
+    "description": "Basé à Lyon — télétravail / hybride en intra-muros / sur-site ponctuel en AuRA, Paris, Genève... (2h de Lyon en TGV)."
+  },
   "Navigation": {
     "projects": "Projets",
-    "lab": "Labo",
+    "lab": "Lab",
     "contact": "Contact",
     "about": "A propos",
     "openMainMenu": "Ouvrir le menu principal"
@@ -34,5 +49,29 @@
     "today": "Aujourd'hui",
     "fullstack": "Développeur Fullstack",
     "freelancer": "J’accompagne mes clients de l’idée à la mise en production de leurs applications."
+  },
+  "WorkingMethods": {
+    "craftsmanship": "Craftsmanship (DRY, SOLID, KISS)",
+    "dry": "J’évite toute duplication de logique ou d’information. Je factorise (fonctions, modules, modèles) pour réduire les bugs et le coût des changements.",
+    "solid": "Je produis un code ouvert à l’extension où chaque module a une seule responsabilité en évitant sa dépendance à des méthodes qu’il n’utilise pas.",
+    "kiss": "Nommage clair, modules courts, revues systématiques, refactoring continu.",
+    "typescript": "TypeScript strict pour prévenir rather que guérir.",
+    "tests": "Tests pragmatiques : unitaires → intégration → E2E sur les parcours critiques.",
+    "adaptability": "Adaptabilité & Collaboration",
+    "scrumTitle": "Rituels Scrum pragmatiques",
+    "scrum": "daily court (points de blocage / prochain incrément), planning orienté objectif, revue/démo à chaque sprint, rétro focalisée sur 1–2 actions concrètes.",
+    "reviewingTitle": "Reviewing & qualité",
+    "reviewing": "petites PR, pair programming ponctuel, décisions de merge tracées.",
+    "communicationTitle": "Communication",
+    "communication": "indirecte par défaut (issues/PR/docs), directe quand nécessaire.",
+    "designSystems": "Design Systems (Tailwind, MUI)",
+    "wireframe": "Maquettage UI",
+    "multimedia": "Multimédia",
+    "management": "Management",
+    "designSystemsDef": "design tokens, variants typées, cohérence cross-écran, accessibilité intégrée.",
+    "wireframeDef": "de zéro (wireframe → hi-fi) ou amélioration, respect des grilles/contraintes.",
+    "multimediaDef": "montage vidéo & composition musicale pour démos produit (teasers, app previews).",
+    "managementDef": "priorisation, coordination tech–produit–design, feedback opérationnel.",
+    "transferableSkills": "Compétences transverses"
   }
 }

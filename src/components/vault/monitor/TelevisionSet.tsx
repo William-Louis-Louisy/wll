@@ -1,6 +1,8 @@
+import MonitorScreen from "./MonitorScreen";
+import MonitorControls from "./MonitorControls";
+import LabCellWrapper from "../../LabCellWrapper";
+import styles from "../../../styles/TelevisionSet.module.css";
 import React, { RefObject, useCallback, useState } from "react";
-import MonitorScreen from "./monitor/MonitorScreen";
-import MonitorControls from "./monitor/MonitorControls";
 
 export default function TelevisionSet({
   isVideoDisplayed,
@@ -17,15 +19,15 @@ export default function TelevisionSet({
 
   const adjustVolume = (change: number) => {
     setVolume((prevVolume) => {
-      // Limiter le volume entre 0 et 1
+      // Limit volume between 0 and 1
       const newVolume = Math.max(0, Math.min(1, prevVolume + change));
 
-      // Si le volume devient > 0 et que la vidéo était muette, désactiver le mode muet
+      // If volume is greater than 0 and is muted, desactivate the mute mode
       if (newVolume > 0 && isMuted) {
         setIsMuted(false);
       }
 
-      // Si le volume devient 0, activer le mode muet
+      // If volume is 0 and is not muted, activate the mute mode
       if (newVolume === 0 && !isMuted) {
         setIsMuted(true);
       }
@@ -34,15 +36,15 @@ export default function TelevisionSet({
     });
   };
 
-  // Fonction "No Signal"
+  // "No Signal" function
   const noSignal = useCallback(() => {
     setIsMessageVisible(true);
     setTimeout(() => setIsMessageVisible(false), 3000);
   }, []);
 
   return (
-    <div className="flex items-center justify-center aspect-square bg-[#8A73FF]">
-      <div className="monitor">
+    <LabCellWrapper bgColor="#8A73FF">
+      <div className={styles["monitor"]}>
         <MonitorScreen
           powered={isPowered}
           muted={isMuted}
@@ -63,6 +65,6 @@ export default function TelevisionSet({
           adjustVolume={adjustVolume}
         />
       </div>
-    </div>
+    </LabCellWrapper>
   );
 }

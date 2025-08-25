@@ -1,149 +1,154 @@
 import React from "react";
 import LabCellWrapper from "../LabCellWrapper";
+import styles from "../../styles/GameBoy.module.css";
 
 export default function GameBoy() {
   return (
     <LabCellWrapper bgColor="#FF73FF">
-      <div className="gameboy">
-        <div className="front-plate">
-          <div className="front-plate-head">
-            <div className="vertical-stripe"></div>
-            <div className="vertical-stripe"></div>
-            <div className="vertical-stripe"></div>
+      <div className={styles.gameboy}>
+        <div className={styles.frontPlate}>
+          <div className={styles.frontPlateHead}>
+            {/* stries décoratives */}
+            <div className={styles.verticalStripe} style={{ left: 22 }} />
+            <div className={styles.verticalStripe} style={{ left: 26 }} />
+            <div className={styles.verticalStripe} style={{ left: 29 }} />
 
-            <div className="vertical-gouge vertical-gouge-1"></div>
-            <div className="vertical-gouge vertical-gouge-2"></div>
+            {/* gouges */}
+            <div
+              className={`${styles.verticalGouge} ${styles.verticalGouge1}`}
+            />
+            <div
+              className={`${styles.verticalGouge} ${styles.verticalGouge2}`}
+            />
 
-            <div className="on-off">
-              <div className="spike spike-left">
-                <div></div>
-              </div>
-              <div className="spike spike-right">
-                <div></div>
-              </div>
-              <span>
-                OFF
-                <i></i>
-                ON
+            {/* ON / OFF */}
+            <div className={styles.onOff}>
+              <span className={styles.onOffLabel}>ON&nbsp;/&nbsp;OFF</span>
+              <i className={styles.onOffDot} />
+              <i className={`${styles.onOffSpike} ${styles.onOffSpikeLeft}`}>
+                <div />
+              </i>
+              <i className={`${styles.onOffSpike} ${styles.onOffSpikeRight}`}>
+                <div />
+              </i>
+            </div>
+          </div>
+
+          {/* Screen + LED */}
+          <div className={styles.gbScreenContainer}>
+            <div className={styles.screenHeadline}>
+              <span className={styles.screenHeadlineText}>
+                DOT MATRIX WITH STEREO SOUND
               </span>
             </div>
+
+            <i className={styles.batteryLight} />
+            <span className={styles.batteryLabel}>BATTERY</span>
+
+            <div className={styles.screen} />
           </div>
 
-          <div className="gb-screen-container">
-            <div className="screen-headline">
-              <span>DOT MATRIX WITH STEREO SOUND</span>
-            </div>
+          {/* Logo */}
+          <div className={styles.logo} />
 
-            <div className="battery-light">
-              <span>BATTERY</span>
-            </div>
-
-            <div className="screen"></div>
-          </div>
-
-          <div className="logo"></div>
-
+          {/* Controls */}
           <div id="controller">
-            <div className="buttons-a-b">
-              <div className="button-b button-key-j" id="controller_b"></div>
-
-              <div className="button-a button-key-k" id="controller_a"></div>
+            {/* Boutons A/B */}
+            <div className={styles.buttonsAB}>
+              <div
+                className={`${styles.buttonB} button-key-j`}
+                id="controller_b"
+              />
+              <div
+                className={`${styles.buttonA} button-key-k`}
+                id="controller_a"
+              />
             </div>
 
-            <div className="start button-key-m" id="controller_start">
-              <div></div>
+            {/* Start / Select */}
+            <div
+              className={`${styles.start} button-key-m`}
+              id="controller_start"
+            >
+              <div className={styles.startInner} />
+            </div>
+            <div
+              className={`${styles.select} button-key-n`}
+              id="controller_select"
+            >
+              <div className={styles.selectInner} />
             </div>
 
-            <div className="select button-key-n" id="controller_select">
-              <div></div>
-            </div>
-
-            <div className="cross-container">
-              <div className="spike">
-                <div></div>
+            {/* Croix directionnelle */}
+            <div className={styles.crossContainer}>
+              <div className={`${styles.dpadSpike} ${styles.dpadSpikeTop}`}>
+                <div />
               </div>
-              <div className="spike">
-                <div></div>
+              <div className={`${styles.dpadSpike} ${styles.dpadSpikeLeft}`}>
+                <div />
               </div>
-              <div className="spike">
-                <div></div>
+              <div className={`${styles.dpadSpike} ${styles.dpadSpikeRight}`}>
+                <div />
               </div>
-              <div className="spike">
-                <div></div>
+              <div className={`${styles.dpadSpike} ${styles.dpadSpikeBottom}`}>
+                <div />
               </div>
 
-              <div className="cross" id="controller_dpad">
-                <div className="top-down">
-                  <div className="button-top button-key-w" id="controller_up">
-                    <div className="button-stripe"></div>
-                    <div className="button-stripe"></div>
-                    <div className="button-stripe"></div>
+              <div className={styles.cross} id="controller_dpad">
+                <div className={styles.topDown}>
+                  <div
+                    className={`${styles.buttonTop} button-key-w`}
+                    id="controller_up"
+                  >
+                    <div className={styles.buttonStripe} />
+                    <div className={styles.buttonStripe} />
+                    <div className={styles.buttonStripe} />
                   </div>
                   <div
-                    className="button-bottom button-key-s"
+                    className={`${styles.buttonBottom} button-key-s`}
                     id="controller_down"
                   >
-                    <div className="button-stripe"></div>
-                    <div className="button-stripe"></div>
-                    <div className="button-stripe"></div>
+                    <div className={styles.buttonStripe} />
+                    <div className={styles.buttonStripe} />
+                    <div className={styles.buttonStripe} />
                   </div>
                 </div>
 
-                <div className="left-right">
+                <div className={styles.leftRight}>
                   <div
-                    className="button-left button-key-a"
+                    className={`${styles.buttonLeft} button-key-a`}
                     id="controller_left"
                   >
-                    <div className="button-stripe"></div>
-                    <div className="button-stripe"></div>
-                    <div className="button-stripe"></div>
+                    <div className={styles.buttonStripe} />
+                    <div className={styles.buttonStripe} />
+                    <div className={styles.buttonStripe} />
                   </div>
                   <div
-                    className="button-right button-key-d"
+                    className={`${styles.buttonRight} button-key-d`}
                     id="controller_right"
                   >
-                    <div className="button-stripe"></div>
-                    <div className="button-stripe"></div>
-                    <div className="button-stripe"></div>
+                    <div className={styles.buttonStripe} />
+                    <div className={styles.buttonStripe} />
+                    <div className={styles.buttonStripe} />
                   </div>
                 </div>
-                <div className="cross-middle-bumb"></div>
+
+                <div className={styles.crossMiddleBumb} />
               </div>
             </div>
           </div>
 
-          <div className="speaker">
-            <div>
-              <div className="speaker-inner-shadow"></div>
-            </div>
-            <div>
-              <div className="speaker-inner-shadow"></div>
-            </div>
-            <div>
-              <div className="speaker-inner-shadow"></div>
-            </div>
-            <div>
-              <div className="speaker-inner-shadow"></div>
-            </div>
-            <div>
-              <div className="speaker-inner-shadow"></div>
-            </div>
-            <div>
-              <div className="speaker-inner-shadow"></div>
-            </div>
+          {/* Speakers */}
+          <div className={styles.speaker} aria-hidden>
+            <div />
+            <div />
+            <div />
+            <div />
+            <div />
+            <div />
+            <div />
+            <div className={styles.speakerInnerShadow} />
           </div>
-
-          <div className="phones" id="volume-switch">
-            <div className="vertical-stripe"></div>
-            <div className="vertical-stripe"></div>
-            <div className="vertical-stripe"></div>
-            <i></i>
-            <span>PHONES</span>
-          </div>
-        </div>
-
-        <div className="power-button">
-          <div></div>
         </div>
       </div>
     </LabCellWrapper>

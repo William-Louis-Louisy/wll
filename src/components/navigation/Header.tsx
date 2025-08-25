@@ -67,8 +67,8 @@ export default function Header() {
       </MaxWidthWrapper>
 
       {/* Mobile Menu */}
-      <DisclosurePanel className="sm:hidden h-page">
-        <div className="space-y-1 pb-3 pt-2">
+      <DisclosurePanel className="sm:hidden relative h-page">
+        <div className="space-y-1 pb-6 pt-6">
           {navlinks.map((link) => (
             <DisclosureButton
               key={link.id}
@@ -77,13 +77,18 @@ export default function Header() {
               className={cn(
                 "block w-full border-l-4 py-2 pl-3 pr-4 text-base font-medium",
                 pathname === link.url
-                  ? "border-foreground"
+                  ? "border-primary text-primary"
                   : "border-transparent"
               )}
             >
               {t(link.id)}
             </DisclosureButton>
           ))}
+        </div>
+
+        <div className="absolute bottom-4 inset-x-0 inline-flex items-center justify-end gap-6 w-full px-4">
+          <ThemeToggle />
+          <LocaleSwitch />
         </div>
       </DisclosurePanel>
     </Disclosure>

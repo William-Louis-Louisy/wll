@@ -4,10 +4,10 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { cn } from "@/utils/classnames";
 import { Project } from "@/types/projects.type";
 import { ArrowRight } from "@phosphor-icons/react";
 import { useLocale, useTranslations } from "next-intl";
-import { cn } from "@/utils/classnames";
 
 interface ProjectCardProps {
   project: Project;
@@ -46,27 +46,25 @@ export default function ProjectCard({ project }: ProjectCardProps) {
   const t = useTranslations("Projects");
   const images = project.images?.slice(0, 3) || [];
 
-  // Vérifier si la stack du projet contient l'ID de React-Native
   const isReactNative = project.stack.some(
     (stack) => stack.name === "React Native"
   );
 
-  // Vérifier si il y a plus d'une image illustrant le projet
   const hasMultipleImages = images.length > 1;
 
   return (
-    <div className="min-h-page grid grid-cols-1 lg:grid-cols-3 items-center mb-8 lg:mb-0">
+    <div className="relative min-h-page w-full grid grid-cols-1 lg:grid-cols-3 items-center">
       <div
         className="
           relative h-72 w-full lg:hidden
           flex flex-nowrap gap-2
           overflow-x-auto snap-x snap-mandatory
-          hide-scrollbar
+          lg:scrollbar-none
         "
       >
         {images.map((src, idx) => (
           <div
-            key={idx}
+            key={`project-pics-${idx}`}
             className="relative overflow-hidden w-full flex-shrink-0 snap-start"
           >
             <Image
@@ -79,7 +77,6 @@ export default function ProjectCard({ project }: ProjectCardProps) {
           </div>
         ))}
       </div>
-
       <motion.div
         className="relative h-80 max-h-192 lg:h-full w-full lg:col-span-2 hidden lg:flex gap-2"
         layout

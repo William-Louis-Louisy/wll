@@ -19,7 +19,7 @@ export default function TimeLine({ careerPath }: TimeLineProps) {
     <div aria-label="Progress">
       <ol role="list" className="overflow-hidden">
         {careerPath.map((item) => (
-          <li key={item._id} className={cn("relative pb-10")}>
+          <li key={item._id} className={cn("relative pb-8")}>
             <>
               <div
                 aria-hidden="true"
@@ -37,7 +37,7 @@ export default function TimeLine({ careerPath }: TimeLineProps) {
                       <span className="font-bold text-primary">
                         {"school" in item ? item.school : item.company}
                       </span>
-                      <span className="text-xs text-alternative">
+                      <span className="text-xs text-foreground/75">
                         {"(" +
                           formatDate(item.startDate) +
                           " - " +
@@ -49,7 +49,7 @@ export default function TimeLine({ careerPath }: TimeLineProps) {
                     <span className="text-sm font-medium ml-4">
                       {currentLocale === "en" ? item.title : item.title_fr}
                     </span>
-                    <span className="text-sm text-alternative ml-4">
+                    <span className="text-sm text-foreground/75 ml-4">
                       {currentLocale === "en"
                         ? item.description
                         : item.description_fr}
@@ -72,7 +72,7 @@ export default function TimeLine({ careerPath }: TimeLineProps) {
                 <span className="ml-4 flex min-w-0 flex-col gap-1">
                   <span className="inline-flex items-baseline gap-2">
                     <span className="font-bold text-primary">Freelance</span>
-                    <span className="text-xs text-alternative">
+                    <span className="text-xs text-foreground/75">
                       {"(04/2024" + " - " + t("today") + ")"}
                     </span>
                   </span>
@@ -80,7 +80,7 @@ export default function TimeLine({ careerPath }: TimeLineProps) {
                   <span className="text-sm font-medium ml-4">
                     {t("fullstack")}
                   </span>
-                  <span className="text-sm text-alternative ml-4">
+                  <span className="text-sm text-foreground/75 ml-4">
                     {t("freelancer")}
                   </span>
                 </span>

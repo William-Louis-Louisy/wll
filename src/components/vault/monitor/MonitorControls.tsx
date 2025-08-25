@@ -8,6 +8,7 @@ import {
   SpeakerSimpleSlash,
 } from "@phosphor-icons/react";
 import { cn } from "@/utils/classnames";
+import styles from "../../../styles/TelevisionSet.module.css";
 
 export default function MonitorControls({
   powered,
@@ -29,16 +30,16 @@ export default function MonitorControls({
   adjustVolume: (change: number) => void;
 }) {
   return (
-    <div className="monitor-controls">
-      {/* Bouton Power + LED */}
-      <div className="flex items-center gap-2.5">
-        <div className="monitor-power-brd">
+    <div className={styles["monitor-controls"]}>
+      {/* Power + LED */}
+      <div className={styles["controls-row"]}>
+        <div className={styles["monitor-power-brd"]}>
           <button
             className={cn(
-              "monitor-power",
+              styles["monitor-power"],
               powered
-                ? "border-0 border-transparent inset-shadow-xs"
-                : "border-[0.5px] border-[#0f0f0f]"
+                ? styles["monitor-power--on"]
+                : styles["monitor-power--off"]
             )}
             onClick={() => setPowered(!powered)}
             aria-label={powered ? "Power Off" : "Power On"}
@@ -48,64 +49,66 @@ export default function MonitorControls({
         </div>
         <div
           className={cn(
-            "monitor-led",
-            powered
-              ? "bg-red-700"
-              : "bg-gradient-to-l from-[#616162] to-[#59595a]"
+            styles["monitor-led"],
+            powered ? styles["monitor-led--on"] : styles["monitor-led--off"]
           )}
-        ></div>
+        />
       </div>
-      {/* Secondary Buttons */}
-      <div className="flex items-center gap-2.5">
+
+      {/* Buttons */}
+      <div className={styles["controls-row"]}>
         {/* Mute */}
         <button
-          className="monitor-btn"
+          className={styles["monitor-btn"]}
           onClick={() => setMuted(!muted)}
           aria-label={muted ? "Unmute" : "Mute"}
         >
           <SpeakerSimpleSlash color="#2e2a25" size={6} weight="bold" />
         </button>
+
         {/* Menu */}
         <button
-          className="monitor-btn"
+          className={styles["monitor-btn"]}
           onClick={() => setMenuOpen(!menuOpen)}
           aria-label="Menu"
         >
           <List color="#2e2a25" size={6} weight="bold" />
         </button>
+
         {/* Channel */}
-        <div className="double-btn">
+        <div className={styles["double-btn"]}>
           <button
-            className="monitor-btn"
+            className={styles["monitor-btn"]}
             onClick={triggerNoSignal}
             aria-label="Channel Down"
           >
             <Triangle
-              className="rotate-180"
+              className={styles["rotate-180"]}
               color="#2e2a25"
               size={6}
               weight="fill"
             />
           </button>
           <button
-            className="monitor-btn"
+            className={styles["monitor-btn"]}
             onClick={triggerNoSignal}
             aria-label="Channel Up"
           >
             <Triangle color="#2e2a25" size={6} weight="fill" />
           </button>
         </div>
+
         {/* Volume */}
-        <div className="double-btn">
+        <div className={styles["double-btn"]}>
           <button
-            className="monitor-btn"
+            className={styles["monitor-btn"]}
             onClick={() => adjustVolume(-0.1)}
             aria-label="Volume Down"
           >
             <Minus color="#2e2a25" size={8} weight="bold" />
           </button>
           <button
-            className="monitor-btn"
+            className={styles["monitor-btn"]}
             onClick={() => adjustVolume(0.1)}
             aria-label="Volume Up"
           >
