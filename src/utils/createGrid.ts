@@ -19,7 +19,7 @@ export const createGridGeometry = (
   const indices: number[] = [];
   const colors: number[] = [];
 
-  const baseColor = new THREE.Color("#1e1e1e");
+  const baseColor = new THREE.Color("#292929");
   const endColor = new THREE.Color("#070707");
 
   // Create vertices

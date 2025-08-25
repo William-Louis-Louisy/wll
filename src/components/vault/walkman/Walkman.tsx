@@ -8,22 +8,24 @@ import AutoReverse from "./AutoReverse";
 import WalkmanLogo from "./WalkmanLogo";
 import WalkmanScreen from "./WalkmanScreen";
 import { useAudio } from "@/contexts/AudioContext";
+import styles from "../../../styles/Walkman.module.css";
+import LabCellWrapper from "@/components/LabCellWrapper";
 
 export default function Walkman() {
   const { isPlaying, play, stop } = useAudio();
 
   return (
-    <div className="flex items-center justify-center aspect-square bg-[#73FFB9]">
-      <div className="walkman-wrapper">
+    <LabCellWrapper bgColor="#73FFB9">
+      <div className={styles.walkmanWrapper}>
         <StpBtn stop={stop} />
         <PlayBtn play={play} isPlaying={isPlaying} />
-        <div className="walkman-display">
+        <div className={styles.walkmanDisplay}>
           <SonyLogo />
           <AutoReverse />
           <WalkmanScreen isPlaying={isPlaying} />
           <WalkmanLogo />
         </div>
       </div>
-    </div>
+    </LabCellWrapper>
   );
 }

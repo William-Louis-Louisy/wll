@@ -9,11 +9,15 @@
   transform-style: preserve-3d;
   backface-visibility: visible;
   transition: transform 0.2s ease-out;
+
+  --mobile-rotate: 0deg;
+  transform: rotate(var(--mobile-rotate));
+  transform-origin: center;
 }
 
 /* === ÉTATS DE LA CARTE === */
 .flipped {
-  transform: rotateY(180deg);
+  transform: rotate(var(--mobile-rotate)) rotateY(180deg);
 }
 
 .animated .innerCard,
@@ -38,6 +42,12 @@
   mix-blend-mode: hard-light;
   transition: all 0.1s ease-out;
   z-index: 9999;
+}
+
+@media (pointer: coarse) {
+  .glare {
+    display: none;
+  }
 }
 
 /* === FACES DE LA CARTE === */
@@ -83,6 +93,16 @@
   transform: rotateY(180deg);
 }
 
+/* === CONTENU AVANT === */
+.frontContent {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  pointer-events: auto;
+  height: 100%;
+}
+
 /* === BOUTONS DE RETOURNEMENT === */
 .flip,
 .unflip {
@@ -104,4 +124,10 @@
 .flip:hover,
 .unflip:hover {
   background: rgba(0, 0, 0, 0.3);
+}
+
+@media screen and (max-width: 768px) {
+  .card {
+    --mobile-rotate: 90deg;
+  }
 }

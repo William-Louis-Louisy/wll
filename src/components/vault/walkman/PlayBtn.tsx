@@ -1,5 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
+import styles from "../../../styles/Walkman.module.css";
 
 export default function PlayBtn({
   play,
@@ -21,7 +22,7 @@ export default function PlayBtn({
   return (
     <motion.div
       onClick={play}
-      className="walkman-button"
+      className={styles.walkmanButton}
       variants={playVariants}
       animate={isPlaying ? "pressed" : "released"}
       transition={{ type: "spring", stiffness: 300, damping: 20 }}

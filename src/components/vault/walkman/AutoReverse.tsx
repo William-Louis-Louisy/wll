@@ -1,11 +1,12 @@
 import React from "react";
+import styles from "../../../styles/Walkman.module.css";
 
 export default function AutoReverse() {
   return (
-    <div className="auto-reverse">
-      <span className="left-triangle"></span>
+    <div className={styles.autoReverse}>
+      <span className={styles.leftTriangle}></span>
       <span>Auto Reverse</span>
-      <span className="right-triangle"></span>
+      <span className={styles.rightTriangle}></span>
     </div>
   );
 }

@@ -51,7 +51,7 @@ export default function Dartboard({
   return (
     <div className="relative w-full h-full">
       {feedback && (
-        <div className="absolute z-30 bg-element/75 size-85 rounded-full top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
+        <div className="absolute z-30 bg-element/75 size-85 rounded-full top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none" />
       )}
 
       <svg
@@ -63,7 +63,7 @@ export default function Dartboard({
       >
         {sectors}
 
-        {/* Bullseye (scalé) */}
+        {/* Bullseye */}
         <circle
           cx={CONFIG.centerX}
           cy={CONFIG.centerY}

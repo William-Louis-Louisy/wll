@@ -1,8 +1,9 @@
 import React from "react";
+import styles from "../../../styles/Walkman.module.css";
 
 export default function SonyLogo() {
   return (
-    <div className="sony-logo">
+    <div className={styles.sonyLogo}>
       <svg xmlns="http://www.w3.org/2000/svg" width={80} viewBox="0 0 526 114">
         <defs>
           <linearGradient id="silverGradient" x1="0%" y1="0%" x2="0%" y2="100%">

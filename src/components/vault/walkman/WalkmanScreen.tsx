@@ -1,38 +1,32 @@
-import { cn } from "@/utils/classnames";
-import { MusicNoteSimple, Play } from "@phosphor-icons/react";
 import React from "react";
+import { cn } from "@/utils/classnames";
+import styles from "../../../styles/Walkman.module.css";
+import { MusicNoteSimple, Play } from "@phosphor-icons/react";
 
 export default function WalkmanScreen({ isPlaying }: { isPlaying: boolean }) {
   return (
-    <div className="screen-container-border">
-      <div className="screen-container">
+    <div className={styles.screenContainerBorder}>
+      <div className={styles.screenContainer}>
         {/* Screen */}
         <div
           className={cn(
-            "walkman-screen relative",
+            styles.walkmanScreen,
             isPlaying
-              ? "bg-primary inset-shadow-orange-800"
-              : "bg-yellow-900 inset-shadow-yellow-950"
+              ? styles.walkmanScreenPlaying
+              : styles.walkmanScreenStopped
           )}
         >
           {/* Screen Text */}
           {isPlaying && (
             <>
-              <div className="screen-text">
+              <div className={styles.screenText}>
                 <Play size={12} />
-                <span className="font-orbitron font-light text-[10px] text-yellow-900">
-                  PLAY
-                </span>
+                <span className={styles.screenPlayText}>PLAY</span>
               </div>
 
-              <MusicNoteSimple
-                size={6}
-                className="absolute top-[3px] left-[3px] "
-              />
+              <MusicNoteSimple size={6} className={styles.screenMusicIcon} />
 
-              <span className="absolute top-[3px] right-[3px] font-orbitron font-medium text-[6px] leading-1.5 text-yellow-900">
-                Side A
-              </span>
+              <span className={styles.screenSideText}>Side A</span>
             </>
           )}
         </div>

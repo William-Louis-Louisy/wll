@@ -55,7 +55,7 @@ export interface DartSectorProps {
 
 export interface FeedbackCardProps {
   feedback: FeedbackStatus;
-  countdown: number | null;
+  onAction: () => void;
 }
 
 export interface IFeedbackContent {

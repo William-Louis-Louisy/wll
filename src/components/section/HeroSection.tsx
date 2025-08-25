@@ -1,12 +1,12 @@
 "use client";
 import Link from "next/link";
+import Image from "next/image";
 import dynamic from "next/dynamic";
 import { motion } from "framer-motion";
 import React, { useState } from "react";
 import { useTranslations } from "next-intl";
 import BrandLoader from "../common/BrandLoader";
 import MaxWidthWrapper from "../common/MaxWidthWrapper";
-import ScrewedContentPanel from "../vault/ScrewedContentPanel";
 
 const DynamicCanvas = dynamic(() => import("../DynamicCanvas"), {
   ssr: false,
@@ -54,9 +54,9 @@ export default function HeroSection() {
 
       {/* Contenu HTML / React au premier plan */}
       {gridReady && (
-        <MaxWidthWrapper className="relative min-h-page z-10 grid grid-cols-1 md:grid-cols-2 md:px-4">
+        <MaxWidthWrapper className="relative min-h-page z-10 place-items-center grid grid-cols-1 md:grid-cols-2 md:px-4">
           <motion.div
-            className="flex flex-col gap-6 px-4 md:px-0 justify-center items-start my-20 md:my-0"
+            className="flex flex-col gap-6 px-4 md:px-0 justify-center items-start mt-12 mb-6 md:my-0"
             variants={container}
             initial="hidden"
             animate="show"
@@ -75,23 +75,34 @@ export default function HeroSection() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.3, ease: "easeOut" }}
-                className="mt-10"
+                className="mt-0 md:mt-10 w-full md:w-fit grid grid-cols-2 text-sm items-center gap-4"
               >
-                <Link
-                  className="px-8 py-3 bg-primary text-foreground font-semibold rounded-md hover:bg-secondary transition-colors"
-                  href="/my-projects"
-                >
-                  Découvrir mes projets
+                <Link className="cta-btn" href="/my-projects">
+                  Mes projets
+                </Link>
+                <Link className="cta-btn" href="/contact-me">
+                  Contactez-moi
                 </Link>
               </motion.div>
             ) : (
-              <div
-                className="h-12 mt-10
-              "
-              ></div>
+              <div className="h-12 mt-10"></div>
             )}
           </motion.div>
-          <ScrewedContentPanel />
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.3, ease: "easeOut" }}
+            className="p-4 md:p-0"
+          >
+            <Image
+              src="https://ucarecdn.com/b8524ef2-ea21-473a-bcc7-414cdf2cc134/avatarWLL.png"
+              alt="Photo de l'auteur"
+              priority
+              width={560}
+              height={560}
+            />
+          </motion.div>
         </MaxWidthWrapper>
       )}
     </section>

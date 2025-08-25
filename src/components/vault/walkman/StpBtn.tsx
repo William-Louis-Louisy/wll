@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import { motion } from "framer-motion";
+import styles from "../../../styles/Walkman.module.css";
 
 export default function StpBtn({ stop }: { stop: () => void }) {
   const [isStopPressed, setIsStopPressed] = useState(false);
@@ -23,7 +24,7 @@ export default function StpBtn({ stop }: { stop: () => void }) {
         stop();
       }}
       onPointerLeave={() => setIsStopPressed(false)}
-      className="walkman-stop"
+      className={styles.walkmanStop}
       variants={stopVariants}
       animate={isStopPressed ? "pressed" : "released"}
       transition={{ type: "spring", stiffness: 300, damping: 20 }}
