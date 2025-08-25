@@ -194,7 +194,7 @@ export default function VCR({
                   </defs>
                   <path
                     d="M26,26 L26,0 A26,26 0 0,1 44.384,7.616 Z"
-                    fill="url(#gradient)"
+                    fill="url(#gradient2)"
                     stroke="#0f0f0f"
                     strokeWidth="0.5px"
                   />

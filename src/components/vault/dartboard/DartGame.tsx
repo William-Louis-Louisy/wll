@@ -16,7 +16,7 @@ export default function DartGame({
 }: DartGameProps) {
   const [stepIndex, setStepIndex] = useState(0);
   const [sequenceIndex, setSequenceIndex] = useState(0);
-  const [feedback, setFeedback] = useState<FeedbackStatus>("success");
+  const [feedback, setFeedback] = useState<FeedbackStatus>("");
   const startedRef = useRef(false);
 
   const currentSteps = sequences[sequenceIndex].steps;
