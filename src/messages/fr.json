@@ -26,6 +26,7 @@
   },
   "Location": {
     "title": "Localisation",
+    "alt": "Image de ma localisation",
     "description": "Basé à Lyon — télétravail / hybride en intra-muros / sur-site ponctuel en AuRA, Paris, Genève... (2h de Lyon en TGV)."
   },
   "Navigation": {
