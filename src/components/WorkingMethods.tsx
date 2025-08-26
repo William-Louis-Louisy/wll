@@ -6,7 +6,7 @@ import { useTranslations } from "next-intl";
 export default function WorkingMethods() {
   const t = useTranslations("WorkingMethods");
   return (
-    <div className="min-h-page px-4 flex flex-col gap-4 md:px-0 lg:gap-0 3xl:gap-8 md:justify-evenly 3xl:justify-center overflow-hidden">
+    <div className="min-h-page grid grid-flow-row auto-rows-auto gap-4 3xl:gap-8 px-4 md:px-0 py-4">
       <div className="rounded-2xl border border-foreground/5 px-5 py-4 bg-element/70">
         <h3 className="font-semibold text-primary">{t("craftsmanship")}</h3>
         <ul className="mt-2 space-y-1.5 text-sm leading-relaxed list-disc list-inside">

@@ -5,8 +5,8 @@ import React from "react";
 
 export default function ScrewedContentPanel() {
   return (
-    <div className="relative max-3xl:h-84 w-full h-full">
-      <div className="absolute inset-0 -mx-px">
+    <div className="relative h-84 w-full lg:h-full">
+      <div className="absolute inset-x-0 inset-y-0 lg:inset-y-4">
         <div className="overflow-hidden bg-[#292929] md:rounded-2xl flex size-full items-center justify-center">
           <div className="size-200 shrink-0 scale-50 sm:scale-75 lg:scale-100">
             <div className="relative grid size-full rotate-x-55 rotate-y-0 -rotate-z-25 grid-cols-3 gap-8 transform-3d">

@@ -64,6 +64,14 @@ html[data-theme="light"] {
   );
 }
 
+* {
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: inherit;
+  scrollbar-width: thin;
+}
+
 body {
   background: var(--background);
   background: var(--bg-gradient);
