@@ -11,7 +11,7 @@ export default function PathSection({
   careerPath: (ICourse | IJob)[];
 }) {
   return (
-    <section className="relative min-h-page px-4 md:px-0 grid grid-cols-1 lg:grid-cols-2 place-items-center gap-8">
+    <section className="relative min-h-page px-4 md:px-0 grid grid-cols-1 lg:grid-cols-2 place-items-center gap-8 snap-start snap-always">
       <TimeLine careerPath={careerPath} />
 
       <LocationCard

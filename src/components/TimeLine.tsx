@@ -7,6 +7,7 @@ import { formatDate } from "@/lib/date";
 import { ICourse } from "@/types/course.type";
 import { Check } from "@phosphor-icons/react";
 import { useLocale, useTranslations } from "next-intl";
+import { pathContainer } from "@/lib/motionVariants";
 
 interface TimeLineProps {
   careerPath: (ICourse | IJob)[];
@@ -18,10 +19,10 @@ export default function TimeLine({ careerPath }: TimeLineProps) {
 
   return (
     <motion.div
-      aria-label="Progress"
-      initial={{ opacity: 0, scaleX: 0 }}
-      animate={{ opacity: 1, scaleX: 1 }}
-      transition={{ duration: 0.25, ease: "easeOut" }}
+      aria-label="Career timeline"
+      variants={pathContainer}
+      initial="initial"
+      animate="animate"
     >
       <ol role="list" className="overflow-hidden">
         {careerPath.map((item) => (
