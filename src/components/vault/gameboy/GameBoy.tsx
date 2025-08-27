@@ -1,6 +1,6 @@
 import React from "react";
-import LabCellWrapper from "../LabCellWrapper";
-import styles from "../../styles/GameBoy.module.css";
+import styles from "@/styles/GameBoy.module.css";
+import LabCellWrapper from "@/components/LabCellWrapper";
 
 export default function GameBoy() {
   return (

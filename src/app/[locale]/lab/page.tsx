@@ -1,20 +1,20 @@
 "use client";
 
-import VCR from "@/components/vault/VCR";
 import LabModal from "@/components/LabModal";
 import { useChrono } from "@/hooks/useChrono";
-import GameBoy from "@/components/vault/GameBoy";
 import { useAudio } from "@/contexts/AudioContext";
 import { useVideo } from "@/contexts/VideoContext";
-import Cassette from "@/components/vault/Cassette";
 import React, { useCallback, useState } from "react";
 import AkaiMPC from "@/components/vault/mpc/AkaiMPC";
-import Scoreboard from "@/components/vault/Scoreboard";
 import { defaultSequences } from "@/lib/dartSequences";
 import Walkman from "@/components/vault/walkman/Walkman";
 import DartGame from "@/components/vault/dartboard/DartGame";
 import TelevisionSet from "@/components/vault/monitor/TelevisionSet";
 import { FeedbackStatus, ProgressPayload } from "@/types/dartgame.type";
+import Cassette from "@/components/vault/tape/Cassette";
+import VCR from "@/components/vault/videorecorder/VCR";
+import GameBoy from "@/components/vault/gameboy/GameBoy";
+import Scoreboard from "@/components/vault/scoreboard/Scoreboard";
 
 export default function Lab() {
   const { isVideoPlaying, videoRef, playVideo, pauseVideo, stopVideo } =

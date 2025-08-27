@@ -1,4 +1,4 @@
-interface ITransferableSkill {
+export interface ITransferableSkill {
   titleKey: string;
   definitionKey: string;
 }

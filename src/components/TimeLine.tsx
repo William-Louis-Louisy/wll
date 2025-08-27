@@ -1,11 +1,13 @@
 "use client";
 import React from "react";
+import { motion } from "framer-motion";
 import { cn } from "@/utils/classnames";
 import { IJob } from "@/types/job.type";
 import { formatDate } from "@/lib/date";
 import { ICourse } from "@/types/course.type";
 import { Check } from "@phosphor-icons/react";
 import { useLocale, useTranslations } from "next-intl";
+import { pathContainer } from "@/lib/motionVariants";
 
 interface TimeLineProps {
   careerPath: (ICourse | IJob)[];
@@ -16,7 +18,12 @@ export default function TimeLine({ careerPath }: TimeLineProps) {
   const t = useTranslations("TimeLine");
 
   return (
-    <div aria-label="Progress">
+    <motion.div
+      aria-label="Career timeline"
+      variants={pathContainer}
+      initial="initial"
+      animate="animate"
+    >
       <ol role="list" className="overflow-hidden">
         {careerPath.map((item) => (
           <li key={item._id} className={cn("relative pb-8")}>
@@ -89,6 +96,6 @@ export default function TimeLine({ careerPath }: TimeLineProps) {
           </>
         </li>
       </ol>
-    </div>
+    </motion.div>
   );
 }

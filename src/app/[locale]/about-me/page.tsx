@@ -21,9 +21,15 @@ export default async function AboutMe() {
   ];
 
   return (
-    <MaxWidthWrapper className="min-h-page my-24 lg:mt-16 mb-0 px-0 flex flex-col items-center">
-      <PathSection careerPath={careerPath} />
-      <StackSection />
-    </MaxWidthWrapper>
+    <main>
+      <MaxWidthWrapper
+        className="lg:overflow-y-auto lg:overscroll-contain lg:snap-y lg:snap-mandatory lg:scroll-smooth scrollbar-none
+      min-h-page lg:h-page my-24 lg:mt-16 mb-0 px-0
+      flex flex-col items-center"
+      >
+        <PathSection careerPath={careerPath} />
+        <StackSection />
+      </MaxWidthWrapper>
+    </main>
   );
 }

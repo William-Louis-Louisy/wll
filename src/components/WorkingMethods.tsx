@@ -1,14 +1,20 @@
 "use client";
-
-import { tranferableSkills } from "@/lib/skills";
 import { useTranslations } from "next-intl";
+import {
+  ITransferableSkill,
+  tranferableSkills as transferableSkillsData,
+} from "@/lib/skills";
+import { downFadeIn, rightFadeIn, upFadeIn } from "@/lib/motionVariants";
+import SectionCard from "./section/SectionCard";
 
 export default function WorkingMethods() {
   const t = useTranslations("WorkingMethods");
+  const skills = transferableSkillsData as ReadonlyArray<ITransferableSkill>;
+
   return (
-    <div className="min-h-page px-4 flex flex-col gap-4 md:px-0 lg:gap-0 3xl:gap-8 md:justify-evenly 3xl:justify-center overflow-hidden">
-      <div className="rounded-2xl border border-foreground/5 px-5 py-4 bg-element/70">
-        <h3 className="font-semibold text-primary">{t("craftsmanship")}</h3>
+    <div className="min-h-page flex flex-col items-center justify-between gap-4 lg:gap-0 px-4 md:px-0 py-4">
+      {/* Craftsmanship */}
+      <SectionCard title={t("craftsmanship")} variants={downFadeIn}>
         <ul className="mt-2 space-y-1.5 text-sm leading-relaxed list-disc list-inside">
           <li>{t("dry")}</li>
           <li>{t("solid")}</li>
@@ -16,32 +22,30 @@ export default function WorkingMethods() {
           <li>{t("typescript")}</li>
           <li>{t("tests")}</li>
         </ul>
-      </div>
+      </SectionCard>
 
-      <div className="rounded-2xl border border-foreground/5 px-5 py-4 bg-element/70">
-        <h3 className="font-semibold text-primary">{t("adaptability")}</h3>
-        <ul className="mt-2 space-y-1.5 text-sm leading-relaxed list-disc list-inside">
-          <li>
-            <span>{t("scrumTitle")}&nbsp;:</span>
-            <p className="text-foreground/75 italic">{t("scrum")}</p>
-          </li>
-          <li>
-            <span>{t("reviewingTitle")}&nbsp;:</span>
-            <p className="text-foreground/75 italic">{t("reviewing")}</p>
-          </li>
-          <li>
-            <span>{t("communicationTitle")}&nbsp;:</span>
-            <p className="text-foreground/75 italic">{t("communication")}</p>
-          </li>
-        </ul>
-      </div>
+      {/* Adaptability */}
+      <SectionCard title={t("adaptability")} variants={rightFadeIn}>
+        <dl className="mt-2 space-y-1.5 text-sm leading-relaxed">
+          <div>
+            <dt className="font-medium">{t("scrumTitle")}</dt>
+            <dd className="text-foreground/75 italic">{t("scrum")}</dd>
+          </div>
+          <div>
+            <dt className="font-medium">{t("reviewingTitle")}</dt>
+            <dd className="text-foreground/75 italic">{t("reviewing")}</dd>
+          </div>
+          <div>
+            <dt className="font-medium">{t("communicationTitle")}</dt>
+            <dd className="text-foreground/75 italic">{t("communication")}</dd>
+          </div>
+        </dl>
+      </SectionCard>
 
-      <div className="rounded-2xl border border-foreground/5 px-5 py-4 bg-element/70">
-        <h3 className="font-semibold text-primary">
-          {t("transferableSkills")}
-        </h3>
-        <ul className="mt-2 flex flex-wrap gap-2">
-          {tranferableSkills.map((skill) => (
+      {/* Transferable Skills */}
+      <SectionCard title={t("transferableSkills")} variants={upFadeIn}>
+        <ul className="mt-2 flex flex-wrap gap-2" role="list">
+          {skills.map((skill) => (
             <li
               key={skill.titleKey}
               title={t(skill.definitionKey)}
@@ -49,14 +53,13 @@ export default function WorkingMethods() {
             >
               <span
                 aria-hidden="true"
-                role="presentation"
                 className="inline-block h-1.5 w-1.5 rounded-full bg-primary"
               />
               {t(skill.titleKey)}
             </li>
           ))}
         </ul>
-      </div>
+      </SectionCard>
     </div>
   );
 }

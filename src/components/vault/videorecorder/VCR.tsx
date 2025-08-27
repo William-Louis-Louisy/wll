@@ -10,10 +10,10 @@ import {
   Rewind,
 } from "@phosphor-icons/react";
 import { cn } from "@/utils/classnames";
-import LgCompany from "../svg/LgCompany";
-import VhsPalSecam from "../svg/VhsPalSecam";
-import LabCellWrapper from "../LabCellWrapper";
-import styles from "../../styles/VCR.module.css";
+import LgCompany from "@/components/svg/LgCompany";
+import VhsPalSecam from "@/components/svg/VhsPalSecam";
+import LabCellWrapper from "@/components/LabCellWrapper";
+import styles from "@/styles/VCR.module.css";
 
 const screenLabels = ["power", "cst.in", "vcr", "rec", "timer", "standby"];
 
