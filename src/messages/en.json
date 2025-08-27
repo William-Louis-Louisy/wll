@@ -26,9 +26,11 @@
     "locale": "{locale, select, fr {🇫🇷} en {🇺🇸} other {Unknown}}"
   },
   "Location": {
-    "title": "Location",
+    "title": "Available",
     "alt": "Image of my location",
-    "description": "Based in Lyon — remote-friendly / hybrid within the city / occasional on-site travel across the AuRA region, Paris, and Geneva (~2 hours from Lyon by high-speed rail)"
+    "remote": "Remote",
+    "hybrid": "Intra-muros hybrid",
+    "punctual": "On-site punctual (up to 2h from Lyon by TGV)"
   },
   "Navigation": {
     "projects": "Projects",

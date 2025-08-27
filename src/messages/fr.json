@@ -25,9 +25,11 @@
     "locale": "{locale, select, fr {🇫🇷} en {🇺🇸} other {Inconnu}}"
   },
   "Location": {
-    "title": "Localisation",
+    "title": "Disponible",
     "alt": "Image de ma localisation",
-    "description": "Basé à Lyon — télétravail / hybride en intra-muros / sur-site ponctuel en AuRA, Paris, Genève... (2h de Lyon en TGV)."
+    "remote": "Télétravail",
+    "hybrid": "Hybride en intra-muros",
+    "punctual": "Sur-site ponctuel (jusqu'à 2h de Lyon en TGV)"
   },
   "Navigation": {
     "projects": "Projets",

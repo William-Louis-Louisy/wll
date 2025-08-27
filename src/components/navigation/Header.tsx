@@ -23,7 +23,7 @@ export default function Header() {
         <header className="h-header w-full flex items-center justify-between">
           <Logo />
 
-          <div className="hidden sm:inline-flex items-center h-full">
+          <div className="hidden md:inline-flex items-center h-full">
             {/* Navigation links */}
             <div className="grid grid-cols-4 h-full">
               {navlinks.map((link) => (
@@ -42,14 +42,14 @@ export default function Header() {
               ))}
             </div>
             {/* Lang & Theme */}
-            <div className="hidden sm:ml-6 sm:flex sm:items-center sm:gap-4">
+            <div className="hidden md:ml-6 md:flex md:items-center md:gap-4">
               <ThemeToggle />
               <LocaleSwitch />
             </div>
           </div>
 
           {/* Mobile Menu Button */}
-          <div className="-mr-2 flex items-center sm:hidden">
+          <div className="-mr-2 flex items-center md:hidden">
             <DisclosureButton className="group relative inline-flex items-center justify-center rounded-md p-2 focus:outline-none">
               <span className="absolute -inset-0.5" />
               <span className="sr-only">{t("openMainMenu")}</span>
@@ -67,7 +67,7 @@ export default function Header() {
       </MaxWidthWrapper>
 
       {/* Mobile Menu */}
-      <DisclosurePanel className="sm:hidden relative h-page">
+      <DisclosurePanel className="md:hidden relative h-page">
         <div className="space-y-1 pb-6 pt-6">
           {navlinks.map((link) => (
             <DisclosureButton
