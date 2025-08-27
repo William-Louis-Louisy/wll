@@ -68,7 +68,6 @@ html[data-theme="light"] {
   box-sizing: border-box;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: inherit;
   scrollbar-width: thin;
 }
 
@@ -98,6 +97,10 @@ h1 {
 
 .hello {
   @apply font-orbitron font-black text-primary text-4xl md:text-7xl;
+}
+
+.location-badge {
+  @apply inline-flex items-center gap-2 lg:p-1.5 lg:rounded-md lg:bg-background/55;
 }
 
 .isometric-bg {

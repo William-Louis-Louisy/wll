@@ -1,7 +1,7 @@
-import { stackLogos } from "@/lib/stackLogo";
-import { motion } from "framer-motion";
-import Image from "next/image";
 import React from "react";
+import Image from "next/image";
+import { motion } from "framer-motion";
+import { stackLogos } from "@/lib/stackLogo";
 
 export default function ScrewedContentPanel() {
   return (

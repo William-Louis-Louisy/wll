@@ -1,5 +1,6 @@
 "use client";
 import React from "react";
+import { motion } from "framer-motion";
 import { cn } from "@/utils/classnames";
 import { IJob } from "@/types/job.type";
 import { formatDate } from "@/lib/date";
@@ -16,7 +17,12 @@ export default function TimeLine({ careerPath }: TimeLineProps) {
   const t = useTranslations("TimeLine");
 
   return (
-    <div aria-label="Progress">
+    <motion.div
+      aria-label="Progress"
+      initial={{ opacity: 0, scaleX: 0 }}
+      animate={{ opacity: 1, scaleX: 1 }}
+      transition={{ duration: 0.25, ease: "easeOut" }}
+    >
       <ol role="list" className="overflow-hidden">
         {careerPath.map((item) => (
           <li key={item._id} className={cn("relative pb-8")}>
@@ -89,6 +95,6 @@ export default function TimeLine({ careerPath }: TimeLineProps) {
           </>
         </li>
       </ol>
-    </div>
+    </motion.div>
   );
 }
