@@ -1,7 +1,7 @@
 "use client";
 import { cn } from "@/utils/classnames";
-import LabCellWrapper from "../LabCellWrapper";
-import styles from "../../styles/Cassette.module.css";
+import LabCellWrapper from "@/components/LabCellWrapper";
+import styles from "@/styles/Cassette.module.css";
 
 export default function Cassette({ isPlaying }: { isPlaying: boolean }) {
   return (

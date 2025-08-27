@@ -2,8 +2,7 @@
 import { FeedbackStatus } from "@/types/dartgame.type";
 import { cn } from "@/utils/classnames";
 import React from "react";
-import LabCellWrapper from "../LabCellWrapper";
-
+import LabCellWrapper from "@/components/LabCellWrapper";
 interface ScoreboardProps {
   sequenceIndex: number;
   totalSequences: number;
