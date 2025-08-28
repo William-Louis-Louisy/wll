@@ -13,7 +13,8 @@
   "HomePage": {
     "title": "Développeur Fullstack",
     "description": "Bonjour, je suis <name>William Louis-Louisy</name>. Je conçois des applications performantes, intuitives et je transforme vos idées en produits digitaux robustes et évolutifs.",
-    "button": "Découvrir mes projets"
+    "leftBtn": "Mes projets",
+    "rightBtn": "Contactez-moi"
   },
   "LabModal": {
     "title": "Bienvenue dans le Lab",
