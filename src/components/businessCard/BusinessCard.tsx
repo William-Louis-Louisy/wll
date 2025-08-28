@@ -2,7 +2,7 @@
 
 import { CaretRight } from "@phosphor-icons/react";
 import styles from "../../styles/BusinessCard.module.css";
-import React, { useState, useRef, useEffect, ReactNode, JSX } from "react";
+import React, { useState, useRef, useEffect, ReactNode } from "react";
 
 export interface FlipCardProps {
   frontContent: ReactNode;
@@ -18,7 +18,7 @@ export default function BusinessCard({
   filterColor,
   customPerspective,
   label,
-}: FlipCardProps): JSX.Element {
+}: FlipCardProps) {
   const [isFlipped, setIsFlipped] = useState<boolean>(false);
   const cardRef = useRef<HTMLDivElement>(null);
   const frontRef = useRef<HTMLSpanElement>(null);
