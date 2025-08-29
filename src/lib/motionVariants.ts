@@ -1,4 +1,6 @@
-export const leftFadeIn = {
+import { Variants } from "motion/react";
+
+export const leftFadeIn: Variants = {
   initial: { opacity: 0, x: -50 },
   inView: {
     opacity: 1,
@@ -12,7 +14,7 @@ export const leftFadeIn = {
     },
   },
 };
-export const upFadeIn = {
+export const upFadeIn: Variants = {
   initial: { opacity: 0, y: 50 },
   inView: {
     opacity: 1,
@@ -26,7 +28,7 @@ export const upFadeIn = {
     },
   },
 };
-export const rightFadeIn = {
+export const rightFadeIn: Variants = {
   initial: { opacity: 0, x: 50 },
   inView: {
     opacity: 1,
@@ -40,7 +42,7 @@ export const rightFadeIn = {
     },
   },
 };
-export const downFadeIn = {
+export const downFadeIn: Variants = {
   initial: { opacity: 0, y: -50 },
   inView: {
     opacity: 1,
@@ -54,7 +56,7 @@ export const downFadeIn = {
     },
   },
 };
-export const pathContainer = {
+export const pathContainer: Variants = {
   initial: { opacity: 0, scaleX: 0 },
   animate: {
     opacity: 1,
@@ -65,7 +67,7 @@ export const pathContainer = {
     },
   },
 };
-export const locationCard = {
+export const locationCard: Variants = {
   initial: { opacity: 0, scaleY: 0 },
   animate: {
     opacity: 1,
@@ -77,7 +79,7 @@ export const locationCard = {
     },
   },
 };
-export const locationImage = {
+export const locationImage: Variants = {
   initial: { opacity: 0, y: "100%", scale: 0 },
   animate: {
     opacity: 1,
@@ -90,7 +92,7 @@ export const locationImage = {
     },
   },
 };
-export const heroLeftBtn = {
+export const heroLeftBtn: Variants = {
   initial: { opacity: 0, x: -50 },
   animate: {
     opacity: 1,
@@ -103,8 +105,9 @@ export const heroLeftBtn = {
       stiffness: 100,
     },
   },
+  clicked: { scale: 0.87 },
 };
-export const heroRightBtn = {
+export const heroRightBtn: Variants = {
   initial: { opacity: 0, x: 50 },
   animate: {
     opacity: 1,
@@ -117,15 +120,16 @@ export const heroRightBtn = {
       stiffness: 100,
     },
   },
+  clicked: { scale: 0.87 },
 };
-export const gradualSpacing = {
+export const gradualSpacing: Variants = {
   initial: { opacity: 0, x: -18 },
   animate: {
     opacity: 1,
     x: 0,
   },
 };
-export const paragraphSlideIn = {
+export const paragraphSlideIn: Variants = {
   initial: { opacity: 0, scaleX: 0 },
   animate: {
     opacity: 1,
@@ -139,7 +143,7 @@ export const paragraphSlideIn = {
     },
   },
 };
-export const pictureRollIn = {
+export const pictureRollIn: Variants = {
   initial: { opacity: 0, x: 300, rotateZ: 31 },
   animate: {
     opacity: 1,
@@ -152,4 +156,9 @@ export const pictureRollIn = {
       type: "spring",
     },
   },
+};
+export const underlineLeftToRight: Variants = {
+  initial: { scaleX: 0 },
+  hover: { scaleX: 1 },
+  active: { scaleX: 1 },
 };

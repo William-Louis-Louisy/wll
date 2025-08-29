@@ -15,25 +15,30 @@ export default function HeroCallToAction({
   return (
     <>
       {showButton ? (
-        <div className="mt-0 md:mt-10 w-full md:w-fit grid grid-cols-2 text-sm items-center gap-4">
-          <motion.div
-            variants={heroLeftBtn}
-            initial="initial"
-            animate="animate"
-          >
-            <Link className="cta-btn" href="/my-projects">
+        <div className="mt-0 md:mt-10 w-full md:w-fit grid grid-cols-2 text-sm place-items-center md:place-items-start gap-4">
+          <Link className="w-full" href="/my-projects">
+            <motion.div
+              className="cta-btn"
+              variants={heroLeftBtn}
+              initial="initial"
+              animate="animate"
+              whileTap="clicked"
+            >
               {t("leftBtn")}
-            </Link>
-          </motion.div>
-          <motion.div
-            variants={heroRightBtn}
-            initial="initial"
-            animate="animate"
-          >
-            <Link className="cta-btn" href="/contact-me">
+            </motion.div>
+          </Link>
+
+          <Link className="w-full" href="/contact-me">
+            <motion.div
+              className="cta-btn"
+              variants={heroRightBtn}
+              initial="initial"
+              animate="animate"
+              whileTap="clicked"
+            >
               {t("rightBtn")}
-            </Link>
-          </motion.div>
+            </motion.div>
+          </Link>
         </div>
       ) : (
         <div className="h-12 mt-10"></div>

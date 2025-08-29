@@ -119,6 +119,7 @@
   justify-content: center;
   align-items: center;
   gap: 0.25rem;
+  color: #fff;
 }
 
 .flip:hover,

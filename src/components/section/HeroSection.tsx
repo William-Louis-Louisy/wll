@@ -1,54 +1,80 @@
 "use client";
 import dynamic from "next/dynamic";
-import React, { useState } from "react";
+import React, {
+  useRef,
+  useState,
+  useEffect,
+  useCallback,
+  type PointerEvent as ReactPointerEvent,
+} from "react";
 import { useTranslations } from "next-intl";
+import HeroPicture from "../hero/HeroPicture";
 import BrandLoader from "../common/BrandLoader";
+import { useReducedMotion } from "framer-motion";
 import HeroParagraph from "../hero/HeroParagraph";
 import HeroCallToAction from "../hero/HeroCallToAction";
 import MaxWidthWrapper from "../common/MaxWidthWrapper";
 import GradualSpacingTitle from "../hero/GradualSpacingTitle";
-import HeroPicture from "../hero/HeroPicture";
 
 const DynamicCanvas = dynamic(() => import("../DynamicCanvas"), {
   ssr: false,
 });
 
+type Vec2 = [number, number];
+
 export default function HeroSection() {
   const t = useTranslations("HomePage");
-  const [gridReady, setGridReady] = useState(false);
-  const [showButton, setShowButton] = useState(false);
-  const [canvasLoaded, setCanvasLoaded] = useState(false);
-  const [pointer, setPointer] = useState<[number, number]>([0, 0]);
+  const prefersReducedMotion = useReducedMotion();
+  const [isReady, setIsReady] = useState<boolean>(false);
+  const [pointer, setPointer] = useState<Vec2>([0, 0]);
+
+  const rafId = useRef<number | null>(null);
+
+  const handleReady = useCallback(() => {
+    setIsReady(true);
+  }, []);
+
+  const handlePointerMove = useCallback((e: ReactPointerEvent<HTMLElement>) => {
+    if (rafId.current != null) return;
+
+    const x = (e.clientX / window.innerWidth) * 2 - 1;
+    const y = (e.clientY / window.innerHeight) * 2 - 1;
+
+    rafId.current = requestAnimationFrame(() => {
+      setPointer([x, y]);
+      rafId.current = null;
+    });
+  }, []);
+
+  useEffect(() => {
+    if (prefersReducedMotion) {
+      setIsReady(true);
+    }
+    return () => {
+      if (rafId.current != null) cancelAnimationFrame(rafId.current);
+    };
+  }, [prefersReducedMotion]);
 
   return (
     <section
       className="relative min-h-page overflow-hidden mt-16"
-      onPointerMove={(e) => {
-        const x = (e.clientX / window.innerWidth) * 2 - 1;
-        const y = (e.clientY / window.innerHeight) * 2 - 1;
-        setPointer([x, y]);
-      }}
+      onPointerMove={prefersReducedMotion ? undefined : handlePointerMove}
     >
       {/* Background Canvas WebGL */}
-      {!canvasLoaded && <BrandLoader />}
+      {!isReady && <BrandLoader aria-hidden="true" />}
 
-      <div className="absolute inset-0 z-0">
-        <DynamicCanvas
-          pointer={pointer}
-          onReady={() => {
-            setGridReady(true);
-            setCanvasLoaded(true);
-            setShowButton(true);
-          }}
-        />
-      </div>
+      {!prefersReducedMotion && (
+        <div className="absolute inset-0 z-0">
+          <DynamicCanvas pointer={pointer} onReady={handleReady} />
+        </div>
+      )}
 
-      {gridReady && (
+      {isReady && (
         <MaxWidthWrapper className="relative min-h-page z-10 place-items-center grid grid-cols-1 md:grid-cols-2 md:px-4">
-          <div className="flex flex-col gap-6 px-4 md:px-0 justify-center items-start mt-12 mb-6 md:my-0">
+          <div className="flex flex-col w-full gap-6 px-4 md:px-0 justify-center items-start mt-12 mb-6 md:my-0">
             <GradualSpacingTitle text={t("title")} />
             <HeroParagraph />
-            <HeroCallToAction showButton={showButton} />
+            <HeroCallToAction showButton={isReady} />
           </div>
           <HeroPicture />
         </MaxWidthWrapper>
