@@ -22,8 +22,10 @@ export default async function MyProjects() {
   if (!projects) return <BrandLoader />;
 
   return (
-    <MaxWidthWrapper>
-      <ProjectsDisplay projects={projects} />
-    </MaxWidthWrapper>
+    <main>
+      <MaxWidthWrapper>
+        <ProjectsDisplay projects={projects} />
+      </MaxWidthWrapper>
+    </main>
   );
 }
