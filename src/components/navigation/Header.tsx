@@ -13,6 +13,7 @@ import { List, X } from "@phosphor-icons/react";
 import { navlinks } from "@/lib/navigationLinks";
 import LocaleSwitch from "../common/LocaleSwitch";
 import MaxWidthWrapper from "../common/MaxWidthWrapper";
+import AnimatedNavLink from "./AnimatedNavLink";
 
 export default function Header() {
   const pathname = usePathname();
@@ -27,18 +28,13 @@ export default function Header() {
             {/* Navigation links */}
             <div className="grid grid-cols-4 h-full">
               {navlinks.map((link) => (
-                <Link
+                <AnimatedNavLink
+                  id={link.id}
                   key={link.id}
-                  href={link.url}
-                  className={cn(
-                    "flex flex-row justify-center items-center text-sm font-orbitron px-6 min-w-16 h-full border-b-4 hover:border-secondary hover:text-secondary duration-150",
-                    pathname === link.url
-                      ? "border-primary text-primary font-bold"
-                      : "border-transparent"
-                  )}
-                >
-                  {t(link.id)}
-                </Link>
+                  url={link.url}
+                  label={t(link.id)}
+                  pathname={pathname}
+                />
               ))}
             </div>
             {/* Lang & Theme */}
