@@ -70,8 +70,8 @@ export default function HeroSection() {
       )}
 
       {isReady && (
-        <MaxWidthWrapper className="relative min-h-page z-10 place-items-center grid grid-cols-1 md:grid-cols-2 md:px-4">
-          <div className="flex flex-col w-full gap-6 px-4 md:px-0 justify-center items-start mt-12 mb-6 md:my-0">
+        <MaxWidthWrapper className="relative min-h-page z-10 place-items-center grid grid-cols-1 lg:grid-cols-2 lg:px-4">
+          <div className="flex flex-col w-full gap-6 px-4 lg:px-0 justify-center items-start mt-12 mb-6 lg:my-0">
             <GradualSpacingTitle text={t("title")} />
             <HeroParagraph />
             <HeroCallToAction showButton={isReady} />

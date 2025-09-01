@@ -1,16 +1,17 @@
+import { useTranslations } from "next-intl";
+import ContactForm from "@/components/ContactForm";
 import CardContent from "@/components/businessCard/CardContent";
 import BusinessCard from "@/components/businessCard/BusinessCard";
 import BusinessLogo from "@/components/businessCard/BusinessLogo";
 import MaxWidthWrapper from "@/components/common/MaxWidthWrapper";
-import { useTranslations } from "next-intl";
 
 export default function ContactMe() {
   const t = useTranslations("BusinessCard");
   return (
     <main>
-      <MaxWidthWrapper className="min-h-page mt-16 md:px-4 flex items-center justify-center">
+      <MaxWidthWrapper className="relative min-h-page w-full mt-16 grid grid-cols-1 lg:grid-cols-2 place-items-center">
         <BusinessCard
-          frontContent={<BusinessLogo height={64} />}
+          frontContent={<BusinessLogo />}
           backContent={
             <CardContent
               name={t("name")}
@@ -24,6 +25,7 @@ export default function ContactMe() {
           }
           label={t("flip")}
         />
+        <ContactForm />
       </MaxWidthWrapper>
     </main>
   );
