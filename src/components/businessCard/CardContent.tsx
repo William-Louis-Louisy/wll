@@ -31,7 +31,7 @@ export default function CardContent({
     <div>
       {/* Top section */}
       <span className="absolute inset-0 rounded-t-xl w-full h-[35%] z-99 isometric-bg">
-        <span className="absolute right-6 bottom-3 text-lg sm:text-xl font-bold text-white">
+        <span className="absolute right-4 lg:right-6 bottom-3 text-lg sm:text-xl font-bold text-white">
           {name}
         </span>
       </span>
@@ -47,7 +47,7 @@ export default function CardContent({
       </span>
       {/* Bottom section */}
       <span className="absolute left-0 top-[35%] w-full h-[65%] pt-3">
-        <span className="absolute right-6 flex flex-col items-end gap-1">
+        <span className="absolute right-4 lg:right-6 flex flex-col items-end gap-1">
           <span className="font-bold text-sm sm:text-base">{title}</span>
           <Link
             href={email}
