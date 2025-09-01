@@ -10,7 +10,7 @@ export default function HeroPicture() {
       variants={pictureRollIn}
       initial="initial"
       animate="animate"
-      className="p-4 md:p-0"
+      className="p-4 lg:p-0"
     >
       <Image
         src="https://ucarecdn.com/b8524ef2-ea21-473a-bcc7-414cdf2cc134/avatarWLL.png"

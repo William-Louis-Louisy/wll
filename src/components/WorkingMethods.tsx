@@ -12,7 +12,7 @@ export default function WorkingMethods() {
   const skills = transferableSkillsData as ReadonlyArray<ITransferableSkill>;
 
   return (
-    <div className="min-h-page flex flex-col items-center justify-between gap-4 lg:gap-0 px-4 md:px-0 py-4">
+    <div className="min-h-page flex flex-col items-center justify-start lg:justify-between 3xl:justify-start gap-4 lg:gap-0 3xl:gap-8 px-4 md:px-0 py-4">
       {/* Craftsmanship */}
       <SectionCard title={t("craftsmanship")} variants={downFadeIn}>
         <ul className="mt-2 space-y-1.5 text-sm leading-relaxed list-disc list-inside">

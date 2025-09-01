@@ -112,40 +112,43 @@ export default function BusinessCard({
   }, [filterColor, customPerspective]);
 
   return (
-    <div
-      className={`${styles.card} ${isFlipped ? styles.flipped : ""}`}
-      ref={cardRef}
-    >
-      {/* Face arrière */}
-      <span className={styles.innerCardBackface} ref={backRef}>
-        <span className={styles.backContent}>
-          {backContent}
+    <div className="size-full min-h-112 flex flex-col justify-center items-center">
+      {" "}
+      <div
+        className={`${styles.card} ${isFlipped ? styles.flipped : ""}`}
+        ref={cardRef}
+      >
+        {/* Face arrière */}
+        <span className={styles.innerCardBackface} ref={backRef}>
+          <span className={styles.backContent}>
+            {backContent}
+            <span
+              className={styles.unflip}
+              onClick={(e) => {
+                e.stopPropagation();
+                setIsFlipped(false);
+              }}
+            >
+              {label} <CaretRight size={12} />
+            </span>
+          </span>
+        </span>
+
+        {/* Face avant */}
+        <span className={styles.innerCard} ref={frontRef}>
           <span
-            className={styles.unflip}
+            className={styles.flip}
             onClick={(e) => {
               e.stopPropagation();
-              setIsFlipped(false);
+              setIsFlipped(true);
             }}
           >
             {label} <CaretRight size={12} />
           </span>
+          <span className={styles.glare} ref={glareRef} />
+          <span className={styles.frontContent}>{frontContent}</span>
         </span>
-      </span>
-
-      {/* Face avant */}
-      <span className={styles.innerCard} ref={frontRef}>
-        <span
-          className={styles.flip}
-          onClick={(e) => {
-            e.stopPropagation();
-            setIsFlipped(true);
-          }}
-        >
-          {label} <CaretRight size={12} />
-        </span>
-        <span className={styles.glare} ref={glareRef} />
-        <span className={styles.frontContent}>{frontContent}</span>
-      </span>
+      </div>
     </div>
   );
 }
