@@ -29,7 +29,7 @@ export default function ThemeToggle(): JSX.Element | null {
       aria-pressed={isDark}
       title={isDark ? t("light") : t("dark")}
       data-state={isDark ? "dark" : "light"}
-      className="inline-flex items-center justify-center rounded-full bg-element p-2 transition-colors hover:opacity-90 focus-visible:outline focus-visible:outline-offset-2 focus-visible:outline-primary/60"
+      className="inline-flex items-center justify-center rounded-full bg-element p-2 transition-colors hover:opacity-90 focus-visible:outline focus-visible:outline-offset-2 focus-visible:outline-primary/60 cursor-pointer"
     >
       {isDark ? (
         <Sun size={20} weight="bold" aria-hidden="true" />

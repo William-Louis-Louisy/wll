@@ -101,10 +101,10 @@ h1 {
   @apply bg-alternative/30 text-alternative/30 cursor-not-allowed border-2 border-alternative/30;
 }
 .primary-button {
-  @apply bg-primary text-background hover:bg-secondary border-2 border-primary hover:border-secondary;
+  @apply bg-primary text-background hover:bg-secondary border-2 border-primary hover:border-secondary cursor-pointer;
 }
 .secondary-button {
-  @apply border-2 border-primary text-primary hover:border-secondary hover:text-secondary;
+  @apply border-2 border-primary text-primary hover:border-secondary hover:text-secondary cursor-pointer;
 }
 .custom-input {
   @apply block w-full rounded-lg border-0 py-3 pl-3 pr-10 ring-1 ring-inset focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6;
