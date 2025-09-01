@@ -13,7 +13,7 @@ export default function RotateWords({ words }: RotateWordsProps) {
   useEffect(() => {
     const interval = setInterval(() => {
       setIndex((prevIndex) => (prevIndex + 1) % words.length);
-    }, 3000);
+    }, 1000);
     // Clean up interval on unmount
     return () => clearInterval(interval);
   }, []);
@@ -27,7 +27,7 @@ export default function RotateWords({ words }: RotateWordsProps) {
           initial={{ opacity: 0, y: -40 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: 40 }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.2 }}
         >
           {t(`cases.${words[index]}`)}
         </motion.span>

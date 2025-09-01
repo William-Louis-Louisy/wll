@@ -114,14 +114,16 @@ export default function BusinessCard({
   }, [filterColor, customPerspective]);
 
   return (
-    <div className="size-full min-h-112 flex flex-col justify-center items-center">
+    <motion.div
+      className="size-full min-h-112 flex flex-col justify-center items-center"
+      variants={leftFadeIn}
+      initial="initial"
+      animate="inView"
+    >
       {" "}
-      <motion.div
+      <div
         className={`${styles.card} ${isFlipped ? styles.flipped : ""}`}
         ref={cardRef}
-        variants={leftFadeIn}
-        initial="initial"
-        animate="inView"
       >
         {/* Face arrière */}
         <span className={styles.innerCardBackface} ref={backRef}>
@@ -153,7 +155,7 @@ export default function BusinessCard({
           <span className={styles.glare} ref={glareRef} />
           <span className={styles.frontContent}>{frontContent}</span>
         </span>
-      </motion.div>
-    </div>
+      </div>
+    </motion.div>
   );
 }
