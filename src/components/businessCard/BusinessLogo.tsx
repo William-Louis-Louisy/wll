@@ -1,6 +1,12 @@
-export default function BusinessLogo({ height = 64 }: { height: number }) {
+"use client";
+import { useIsMobile } from "@/hooks/useIsMobile";
+
+export default function BusinessLogo() {
+  const isMobile = useIsMobile();
+
+  const height = isMobile ? 56 : 64;
   return (
-    <div className="flex items-center justify-center size-50 bg-background rounded-b-full rounded-tl-full">
+    <div className="flex items-center justify-center size-40 sm:size-50 bg-background rounded-b-full rounded-tl-full">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         version="1.2"

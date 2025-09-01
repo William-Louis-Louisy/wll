@@ -36,12 +36,16 @@
   width: 100%;
   height: 100%;
   border-radius: 12px;
-  background: radial-gradient(circle at 50% 50%, rgb(133 148 158), transparent);
+  background: radial-gradient(
+    circle at 50% 50%,
+    rgb(111, 127, 138),
+    transparent
+  );
   opacity: 0.4;
   pointer-events: none;
   mix-blend-mode: hard-light;
   transition: all 0.1s ease-out;
-  z-index: 9999;
+  z-index: 9998;
 }
 
 @media (pointer: coarse) {
@@ -120,6 +124,7 @@
   align-items: center;
   gap: 0.25rem;
   color: #fff;
+  z-index: 9999;
 }
 
 .flip:hover,
@@ -127,8 +132,12 @@
   background: rgba(0, 0, 0, 0.3);
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 30rem) {
   .card {
-    --mobile-rotate: 90deg;
+    /* --mobile-rotate: 90deg; */
+    width: calc(100% - 2rem);
+  }
+  .frontContent {
+    height: 80%;
   }
 }

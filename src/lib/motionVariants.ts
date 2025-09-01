@@ -162,3 +162,15 @@ export const underlineLeftToRight: Variants = {
   hover: { scaleX: 1 },
   active: { scaleX: 1 },
 };
+export const formDeploy: Variants = {
+  initial: { opacity: 0, scaleY: 0 },
+  animate: {
+    opacity: 1,
+    scaleY: 1,
+    transformOrigin: "top",
+    transition: {
+      duration: 0.87,
+      ease: "easeOut",
+    },
+  },
+};

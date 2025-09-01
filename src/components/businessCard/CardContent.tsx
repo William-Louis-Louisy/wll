@@ -1,4 +1,5 @@
 "use client";
+import { useIsMobile } from "@/hooks/useIsMobile";
 import { GithubLogo, Globe, LinkedinLogo } from "@phosphor-icons/react";
 import Image from "next/image";
 import Link from "next/link";
@@ -22,13 +23,15 @@ export default function CardContent({
   website,
   linkedin,
 }: CardContentProps) {
+  const isMobile = useIsMobile();
   const picture =
     "https://ucarecdn.com/b29bf956-719d-4fc6-96de-4e8d71fccbbe/-/preview/1000x1000/";
+  const pictureSize = isMobile ? 112 : 128;
   return (
     <div>
       {/* Top section */}
       <span className="absolute inset-0 rounded-t-xl w-full h-[35%] z-99 isometric-bg">
-        <span className="absolute right-6 bottom-3 text-xl font-bold text-white">
+        <span className="absolute right-6 bottom-3 text-lg sm:text-xl font-bold text-white">
           {name}
         </span>
       </span>
@@ -36,8 +39,8 @@ export default function CardContent({
       <span className="absolute z-99">
         <Image
           src={picture}
-          width={112}
-          height={112}
+          width={pictureSize}
+          height={pictureSize}
           alt="Picture of the author"
           className="rounded-full transform scale-100 hover:scale-105 transition-all duration-100 ease-out shadow-[0_4px_9px_rgba(0,0,0,0.2)]"
         />
@@ -45,12 +48,12 @@ export default function CardContent({
       {/* Bottom section */}
       <span className="absolute left-0 top-[35%] w-full h-[65%] pt-3">
         <span className="absolute right-6 flex flex-col items-end gap-1">
-          <span className="font-bold">{title}</span>
+          <span className="font-bold text-sm sm:text-base">{title}</span>
           <Link
             href={email}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-sm hover:underline hover:underline-offset-2 duration-300"
+            className="text-xs sm:text-sm hover:underline hover:underline-offset-2 duration-300"
           >
             {email}
           </Link>
@@ -58,7 +61,7 @@ export default function CardContent({
             href={phone}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-sm hover:underline hover:underline-offset-2 duration-300"
+            className="text-xs sm:text-sm hover:underline hover:underline-offset-2 duration-300"
           >
             {phone}
           </Link>

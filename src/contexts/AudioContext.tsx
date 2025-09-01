@@ -80,8 +80,11 @@ export const AudioProvider: React.FC<AudioProviderProps> = ({ children }) => {
   return (
     <AudioContext.Provider value={{ isPlaying, play, pause, stop, audioRef }}>
       {children}
-      {/* Remplacez par votre source audio réelle */}
-      <audio ref={audioRef} src="/audio/we are waffles.mp3" preload="auto" />
+      <audio
+        ref={audioRef}
+        src="/audio/WanHand - push to the sun.mp3"
+        preload="auto"
+      />
     </AudioContext.Provider>
   );
 };

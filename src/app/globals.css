@@ -94,6 +94,30 @@ h1 {
 .cta-btn {
   @apply px-3 py-3 md:px-8 w-full min-w-32 bg-primary text-background text-center font-semibold rounded-md hover:bg-secondary transition-colors;
 }
+.custom-button {
+  @apply inline-flex items-center gap-2 px-8 py-2.5 rounded-md text-sm font-semibold transition-colors ease-in-out duration-300;
+}
+.disabled-button {
+  @apply bg-alternative/30 text-alternative/30 cursor-not-allowed border-2 border-alternative/30;
+}
+.primary-button {
+  @apply bg-primary text-background hover:bg-secondary border-2 border-primary hover:border-secondary;
+}
+.secondary-button {
+  @apply border-2 border-primary text-primary hover:border-secondary hover:text-secondary;
+}
+.custom-input {
+  @apply block w-full rounded-lg border-0 py-3 pl-3 pr-10 ring-1 ring-inset focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6;
+}
+.custom-input-error {
+  @apply ring-red-300 placeholder:text-red-300 focus:ring-red-500;
+}
+.form-error {
+  @apply mt-2 text-xs text-red-600;
+}
+.form-error-icon {
+  @apply h-5 w-5 text-red-500;
+}
 
 .hello {
   @apply font-orbitron font-black text-primary text-4xl md:text-7xl;

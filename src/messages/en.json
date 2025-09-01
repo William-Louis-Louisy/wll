@@ -4,6 +4,44 @@
     "title": "Fullstack Developer",
     "flip": "Flip card"
   },
+  "Contact": {
+    "title": "Contact me",
+    "cases": {
+      "contract": "to hire me",
+      "mission": "for a mission",
+      "project": "for a project"
+    },
+    "labels": {
+      "email": "Email address",
+      "subject": "Subject",
+      "message": "Message",
+      "submit": "Send",
+      "reset": "Reset"
+    },
+    "helpers": {
+      "subject": "3-120 characters.",
+      "message": "≥ 10 characters."
+    },
+    "placeholders": {
+      "email": "Please enter your email address",
+      "subject": "Please enter a subject",
+      "message": "Please enter a message"
+    },
+    "success": "Your message has been sent. Thank you !",
+    "errors": {
+      "unknown": "Something went wrong. Please try again later.",
+      "missingConfig": "Configuration missing: API URL is not defined.",
+      "email_required": "An email address is required.",
+      "email_invalid": "The email address is invalid.",
+      "subject_required": "A subject is required.",
+      "subject_min": "The subject must contain at least {min} characters.",
+      "subject_max": "The subject must contain at most {max} characters.",
+      "message_required": "A message is required.",
+      "message_min": "The message must contain at least {min} characters.",
+      "message_max": "The message must contain at most {max} characters.",
+      "bot_detected": "You are a bot. Please go away."
+    }
+  },
   "DartGame": {
     "successTitle": "Sequence success !",
     "successMessage": "Next",
