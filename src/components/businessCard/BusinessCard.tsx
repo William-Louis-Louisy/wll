@@ -1,8 +1,10 @@
 "use client";
 
+import { motion } from "framer-motion";
 import { CaretRight } from "@phosphor-icons/react";
 import styles from "../../styles/BusinessCard.module.css";
 import React, { useState, useRef, useEffect, ReactNode } from "react";
+import { leftFadeIn } from "@/lib/motionVariants";
 
 export interface FlipCardProps {
   frontContent: ReactNode;
@@ -114,9 +116,12 @@ export default function BusinessCard({
   return (
     <div className="size-full min-h-112 flex flex-col justify-center items-center">
       {" "}
-      <div
+      <motion.div
         className={`${styles.card} ${isFlipped ? styles.flipped : ""}`}
         ref={cardRef}
+        variants={leftFadeIn}
+        initial="initial"
+        animate="inView"
       >
         {/* Face arrière */}
         <span className={styles.innerCardBackface} ref={backRef}>
@@ -148,7 +153,7 @@ export default function BusinessCard({
           <span className={styles.glare} ref={glareRef} />
           <span className={styles.frontContent}>{frontContent}</span>
         </span>
-      </div>
+      </motion.div>
     </div>
   );
 }

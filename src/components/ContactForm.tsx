@@ -5,6 +5,7 @@ import {
   type ContactInput,
   type ContactOutput,
 } from "@/lib/contactFormSchema";
+import { motion } from "framer-motion";
 import RotateWords from "./RotateWords";
 import { cn } from "@/utils/classnames";
 import { useTranslations } from "next-intl";
@@ -12,8 +13,9 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm, type SubmitHandler } from "react-hook-form";
 import { CheckCircle, WarningCircle } from "@phosphor-icons/react";
 import React, { useEffect, useMemo, useRef, useState } from "react";
+import { formDeploy } from "@/lib/motionVariants";
 
-const words = ["contract", "mission", "project"];
+const words = ["mission", "contract", "project"];
 
 type ApiStatus =
   | { state: "idle" }
@@ -118,11 +120,14 @@ export default function ContactForm() {
 
   return (
     <div className="size-full min-h-page flex flex-col justify-center items-center">
-      <form
+      <motion.form
         className="p-4 lg:p-8 bg-element sm:rounded-2xl border border-foreground/5 shadow-2xl place-items-center w-full max-w-md space-y-3"
         noValidate
         aria-busy={isSubmitting}
         onSubmit={handleSubmit(onSubmit)}
+        variants={formDeploy}
+        initial="initial"
+        animate="animate"
       >
         <div className="text-left w-full inline-flex items-baseline gap-2">
           <h2 className="text-3xl text-primary font-bebas-neue font-bold mb-2">
@@ -335,7 +340,7 @@ export default function ContactForm() {
             </p>
           )}
         </div>
-      </form>
+      </motion.form>
     </div>
   );
 }
