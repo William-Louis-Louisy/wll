@@ -13,7 +13,7 @@ export default function RotateWords({ words }: RotateWordsProps) {
   useEffect(() => {
     const interval = setInterval(() => {
       setIndex((prevIndex) => (prevIndex + 1) % words.length);
-    }, 1000);
+    }, 2000);
     // Clean up interval on unmount
     return () => clearInterval(interval);
   }, []);
