@@ -59,7 +59,7 @@ export default function LocaleSwitch() {
             aria-label={t("label", { defaultMessage: "Change language" })}
             aria-busy={isPending}
             className={cn(
-              "relative w-full cursor-default rounded-md bg-element py-2 pl-3 pr-10 text-left shadow-sm"
+              "relative w-full rounded-md bg-element py-2 pl-3 pr-10 text-left shadow-sm cursor-pointer"
             )}
           >
             <span className="block truncate">{selected.label}</span>
@@ -80,7 +80,7 @@ export default function LocaleSwitch() {
                 value={loc}
                 className={({ active }) =>
                   cn(
-                    "relative cursor-default select-none py-2 pl-4 pr-9",
+                    "relative cursor-pointer select-none py-2 pl-4 pr-9",
                     active
                       ? "bg-alternative text-background"
                       : "text-foreground"

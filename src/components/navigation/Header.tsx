@@ -71,7 +71,7 @@ export default function Header() {
               as={Link}
               href={link.url}
               className={cn(
-                "block w-full border-l-4 py-2 pl-3 pr-4 text-base font-medium",
+                "block w-full border-l-4 py-2 pl-3 pr-4 text-base font-medium font-orbitron",
                 pathname === link.url
                   ? "border-primary text-primary"
                   : "border-transparent"
