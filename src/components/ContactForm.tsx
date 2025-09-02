@@ -119,7 +119,7 @@ export default function ContactForm() {
   };
 
   return (
-    <div className="size-full min-h-page flex flex-col justify-center items-center">
+    <div className="size-full lg:min-h-page mb-6 lg:mb-0 flex flex-col lg:justify-center items-center">
       <motion.form
         className="p-4 lg:p-8 bg-element sm:rounded-2xl border border-foreground/5 shadow-2xl place-items-center w-full max-w-md space-y-3"
         noValidate

@@ -174,3 +174,34 @@ export const formDeploy: Variants = {
     },
   },
 };
+export const imageTap: Variants = {
+  initial: { scale: 1, opacity: 1 },
+  clicked: { scale: 0.87, opacity: 0.31 },
+};
+export const projectImage = {
+  initial: {
+    flex: 1,
+    zIndex: 1,
+  },
+  hover: {
+    flex: 16,
+    zIndex: 5,
+    transition: {
+      type: "tween",
+      stiffness: 200,
+      damping: 50,
+      mass: 1,
+    },
+  },
+  hoverMobile: {
+    flex: 1,
+    zIndex: 5,
+    scale: 0.98,
+    transition: {
+      type: "tween",
+      stiffness: 200,
+      damping: 50,
+      mass: 1,
+    },
+  },
+};
