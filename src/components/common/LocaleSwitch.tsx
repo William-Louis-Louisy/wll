@@ -14,6 +14,8 @@ import { useIsMobile } from "@/hooks/useIsMobile";
 import { useLocale, useTranslations } from "next-intl";
 import { Check, CaretUpDown } from "@phosphor-icons/react";
 import { useRouter, usePathname } from "@/i18n/navigation";
+import { langItems } from "@/lib/langItems";
+import Image from "next/image";
 
 type AppLocale = (typeof routing.locales)[number];
 
@@ -59,10 +61,18 @@ export default function LocaleSwitch() {
             aria-label={t("label", { defaultMessage: "Change language" })}
             aria-busy={isPending}
             className={cn(
-              "relative w-full rounded-md bg-element py-2 pl-3 pr-10 text-left shadow-sm cursor-pointer"
+              "relative w-full rounded-md bg-element py-2 pl-3 pr-10 text-left cursor-pointer"
             )}
           >
-            <span className="block truncate">{selected.label}</span>
+            <span className="block truncate lg:hidden">{selected.label}</span>
+            <span className="lg:inline-flex items-center truncate hidden h-6">
+              <Image
+                src={langItems.find((l) => l.short === selected.code)!.flagUrl}
+                alt={selected.label}
+                width={20}
+                height={20}
+              />
+            </span>
             <span className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2">
               <CaretUpDown aria-hidden className="h-4 w-4 text-gray-400" />
             </span>
@@ -91,11 +101,28 @@ export default function LocaleSwitch() {
                   <>
                     <span
                       className={cn(
-                        "block truncate",
+                        "block truncate lg:hidden",
                         isSelected ? "font-semibold" : "font-normal"
                       )}
                     >
                       {loc.label}
+                    </span>
+                    <span
+                      className={cn(
+                        "lg:block truncate hidden",
+                        isSelected ? "font-semibold" : "font-normal"
+                      )}
+                    >
+                      {langItems.find((l) => l.short === loc.code)?.flagUrl && (
+                        <Image
+                          src={
+                            langItems.find((l) => l.short === loc.code)!.flagUrl
+                          }
+                          alt={loc.label}
+                          width={20}
+                          height={20}
+                        />
+                      )}
                     </span>
 
                     {isSelected && (

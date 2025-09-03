@@ -62,7 +62,9 @@
   },
   "LocaleSwitch": {
     "label": "Change language",
-    "locale": "{locale, select, fr {🇫🇷} en {🇺🇸} other {Unknown}}"
+    "locale": "{locale, select, fr {🇫🇷} en {🇺🇸} other {Unknown}}",
+    "fr": "French",
+    "en": "English"
   },
   "Location": {
     "title": "Available",
@@ -82,6 +84,43 @@
     "title": "Projects",
     "description": "Here is a list of projects I've worked on.",
     "visit": "Visit"
+  },
+  "SEO": {
+    "siteTitle": "William Louis-Louisy — Full-stack Developer",
+    "siteDescription": "Portfolio, projects and creative Lab. Open to hiring and available for freelance work.",
+    "ogAlt": "Preview of William Louis-Louisy’s portfolio",
+    "pages": {
+      "home": {
+        "title": "Home",
+        "description": "Welcome to my portfolio: explore my projects, background and experiments.",
+        "ogTitle": "Portfolio",
+        "ogDescription": "Portfolio home"
+      },
+      "projects": {
+        "title": "Projects",
+        "description": "Selection of professional and personal projects.",
+        "ogTitle": "My projects",
+        "ogDescription": "Selected projects I built or contributed to."
+      },
+      "lab": {
+        "title": "Lab",
+        "description": "A space for visual and interactive experiments: R3F, Canvas, isometric CSS, micro-interactions, audio/video control.",
+        "ogTitle": "Creative Lab",
+        "ogDescription": "Interactive demos and UI prototypes."
+      },
+      "about": {
+        "title": "About",
+        "description": "Background, craft mindset, workflow and tooling.",
+        "ogTitle": "About me",
+        "ogDescription": "My background and approach."
+      },
+      "contact": {
+        "title": "Contact",
+        "description": "Let’s discuss your needs: hiring, freelance, contract, audit or redesign.",
+        "ogTitle": "Get in touch",
+        "ogDescription": "Contact channels."
+      }
+    }
   },
   "ThemeToggle": {
     "label": "Toggle theme",
