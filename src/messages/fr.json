@@ -61,7 +61,9 @@
   },
   "LocaleSwitch": {
     "label": "Changer la langue",
-    "locale": "{locale, select, fr {🇫🇷} en {🇺🇸} other {Inconnu}}"
+    "locale": "{locale, select, fr {🇫🇷} en {🇺🇸} other {Inconnu}}",
+    "fr": "Français",
+    "en": "English"
   },
   "Location": {
     "title": "Disponible",
@@ -81,6 +83,43 @@
     "title": "Projets",
     "description": "Voici une liste de projets sur lesquels j'ai travaillé.",
     "visit": "Visiter"
+  },
+  "SEO": {
+    "siteTitle": "William Louis-Louisy — Fullstack Developer",
+    "siteDescription": "Portfolio, projets et Lab créatif. Ouvert à l'embauche et disponible pour missions freelance.",
+    "ogAlt": "Apreçu du portfolio de William Louis-Louisy",
+    "pages": {
+      "home": {
+        "title": "Accueil",
+        "description": "Bienvenue sur mon portfolio : découvrez mes projets, mon parcours et mes expérimentations.",
+        "ogTitle": "Portfolio",
+        "ogDescription": "Accueil de mon portfolio"
+      },
+      "projects": {
+        "title": "Projets",
+        "description": "Sélection de projets pro et persos.",
+        "ogTitle": "Mes projets",
+        "ogDescription": "Sélection des projets que j'ai réalisé ou sur lesquels j'ai travaillé."
+      },
+      "lab": {
+        "title": "Lab",
+        "description": "Un espace d'expérimentations visuelles et interactives: R3F, Canvas, CSS isométrique, micro-interactions, audio/vidéo pilotés.",
+        "ogTitle": "Lab créatif",
+        "ogDescription": "Démos interactives et prototypes UI."
+      },
+      "about": {
+        "title": "À propos",
+        "description": "Parcours, philosophie craft, méthode de travail et outillage.",
+        "ogTitle": "À propos de moi",
+        "ogDescription": "Mon parcours et mon approche."
+      },
+      "contact": {
+        "title": "Contact",
+        "description": "Discutons de vos besoins : embauche, freelance, mission, audit ou refonte.",
+        "ogTitle": "Me contacter",
+        "ogDescription": "Canaux de contact."
+      }
+    }
   },
   "ThemeToggle": {
     "label": "Changer le thème",
