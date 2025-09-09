@@ -2,17 +2,17 @@ export const navlinks = [
   {
     id: "projects",
     title: "Projects",
-    url: "/my-projects",
+    url: "my-projects",
   },
-  { id: "lab", title: "Lab", url: "/lab" },
+  { id: "lab", title: "Lab", url: "lab" },
   {
     id: "contact",
     title: "Contact",
-    url: "/contact-me",
+    url: "contact-me",
   },
   {
     id: "about",
     title: "About",
-    url: "/about-me",
+    url: "about-me",
   },
 ];

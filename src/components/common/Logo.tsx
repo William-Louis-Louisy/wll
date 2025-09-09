@@ -1,9 +1,11 @@
-import Link from "next/link";
 import React from "react";
+import Link from "next/link";
+import { useLocale } from "next-intl";
 
 export default function Logo() {
+  const locale = useLocale();
   return (
-    <Link href="/">
+    <Link href={`/${locale}`}>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         version="1.2"
