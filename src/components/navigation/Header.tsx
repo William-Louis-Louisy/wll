@@ -6,7 +6,7 @@ import {
 import Link from "next/link";
 import Logo from "../common/Logo";
 import { cn } from "@/utils/classnames";
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 import ThemeToggle from "../common/ThemeToggle";
 import { usePathname } from "@/i18n/navigation";
 import { List, X } from "@phosphor-icons/react";
@@ -16,6 +16,7 @@ import MaxWidthWrapper from "../common/MaxWidthWrapper";
 import AnimatedNavLink from "./AnimatedNavLink";
 
 export default function Header() {
+  const locale = useLocale();
   const pathname = usePathname();
   const t = useTranslations("Navigation");
   return (
@@ -31,7 +32,7 @@ export default function Header() {
                 <AnimatedNavLink
                   id={link.id}
                   key={link.id}
-                  url={link.url}
+                  url={`/${locale}/${link.url}`}
                   label={t(link.id)}
                   pathname={pathname}
                 />
@@ -69,7 +70,7 @@ export default function Header() {
             <DisclosureButton
               key={link.id}
               as={Link}
-              href={link.url}
+              href={`/${locale}/${link.url}`}
               className={cn(
                 "block w-full border-l-4 py-2 pl-3 pr-4 text-base font-medium font-orbitron",
                 pathname === link.url
