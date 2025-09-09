@@ -21,8 +21,8 @@ export async function generateMetadata({
     title: p("title"),
     description: p("description"),
     alternates: {
-      canonical: `/${locale}/projects`,
-      languages: { "fr-FR": "/fr/projects", "en-US": "/en/projects" },
+      canonical: `/${locale}/my-projects`,
+      languages: { "fr-FR": "/fr/my-projects", "en-US": "/en/my-projects" },
     },
     openGraph: {
       title: p("ogTitle"),

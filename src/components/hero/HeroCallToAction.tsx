@@ -2,7 +2,7 @@
 import React from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 import { heroLeftBtn, heroRightBtn } from "@/lib/motionVariants";
 
 export default function HeroCallToAction({
@@ -11,12 +11,13 @@ export default function HeroCallToAction({
   showButton: boolean;
 }) {
   const t = useTranslations("HomePage");
+  const locale = useLocale();
 
   return (
     <>
       {showButton ? (
         <div className="mt-0 md:mt-10 w-full md:w-fit grid grid-cols-2 text-sm place-items-center md:place-items-start gap-4">
-          <Link className="w-full" href="/my-projects">
+          <Link className="w-full" href={`/${locale}/my-projects`}>
             <motion.div
               className="cta-btn"
               variants={heroLeftBtn}
@@ -28,7 +29,7 @@ export default function HeroCallToAction({
             </motion.div>
           </Link>
 
-          <Link className="w-full" href="/contact-me">
+          <Link className="w-full" href={`/${locale}/contact-me`}>
             <motion.div
               className="cta-btn"
               variants={heroRightBtn}
